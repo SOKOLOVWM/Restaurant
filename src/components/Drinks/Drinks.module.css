@@ -1,0 +1,14 @@
+.about {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+.about ul li {
+	list-style: none;
+}
+
+.about ul li a {
+	color: #00f;
+	text-decoration: none;
+}

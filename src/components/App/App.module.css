@@ -1,0 +1,9 @@
+.container {
+	height: 100%;
+	width: 100%;
+	max-width: 1440px;
+	margin: auto;
+	background: linear-gradient(360deg, #211f20 0%, #44403f 100%);
+	display: flex;
+	flex-direction: column;
+}
