@@ -1,0 +1,43 @@
+@import url(./../../../../styles/fonts.css);
+
+.banner {
+	height: 100%;
+	width: 830px;
+	background: linear-gradient(90deg, #211f20 0%, rgba(68, 64, 63, 0) 100%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	width: 620px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 40px;
+	transform: rotate(-8.4deg);
+}
+
+.title {
+	font-family: ZingRustDemo-Base;
+	font-size: 67px;
+	line-height: 109.2%;
+	text-align: center;
+	text-transform: uppercase;
+	text-shadow: 0px 0px 1px rgb(255, 255, 255);
+	color: #fff;
+}
+
+.question {
+	display: inline-block;
+	width: 300px;
+	padding: 8px 30px;
+	background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
+	font-family: ZingRustDemo-Base;
+	font-size: 25px;
+	line-height: 109.2%;
+	text-align: center;
+	text-transform: uppercase;
+	color: #ffffff;
+	transform: skew(-8.4deg);
+}

@@ -1,24 +1,23 @@
 import { Routes, Route } from "react-router-dom";
-import { SnackCold } from "../SnackCold/SnackCold";
-import { SnackHot } from "../SnacksHot/SnackHot";
-import { DishMeat } from "../DishMeat/DishMeat";
-import { Soup } from "../Soup/Soup";
-import { DishFish } from "../DishFish/DishFish";
-import { Grill } from "../Grill/Grill";
-import { Specials } from "../Specials/Specials";
-import { Drinks } from "../Drinks/Drinks";
+import { Category } from "../Main/Category/Category";
+import { Cart } from "../../pages/Cart/Cart";
+import { About } from "./../../pages/About/About";
+import { Delivery } from "../../pages/Delivery/Delivery";
+import { Refund } from "../../pages/Refund/Refund";
+import { Sale } from "../../pages/Sale/Sale";
 
 export function Roater() {
 	return (
 		<Routes>
-			<Route path="/" element={<SnackCold />} />
-			<Route path="snackHot" element={<SnackHot />} />
-			<Route path="dishMeat" element={<DishMeat />} />
-			<Route path="soup" element={<Soup />} />
-			<Route path="dishFish" element={<DishFish />} />
-			<Route path="grill" element={<Grill />} />
-			<Route path="specials" element={<Specials />} />
-			<Route path="drinks" element={<Drinks />} />
+			<Route path="/" element={<Category />} />{" "}
+			{/* если домашнайаа страница, то компонента Category вернет "Холодные закуски" */}
+			<Route path="/:url" element={<Category />} />
+			{/* динамический router отображает компоненту Category с данными длйа соответствующего url */}
+			<Route path="/cart" element={<Cart />} />
+			<Route path="/about" element={<About />} />
+			<Route path="/delivery" element={<Delivery />} />
+			<Route path="/refund" element={<Refund />} />
+			<Route path="/sale" element={<Sale />} />
 		</Routes>
 	);
 }

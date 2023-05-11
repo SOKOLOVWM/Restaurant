@@ -1,0 +1,29 @@
+@import url(./../../styles/fonts.css);
+
+.cart {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+.back {
+	text-decoration: none;
+	font-family: Gilroy-Bold;
+	font-size: 16px;
+	line-height: 19px;
+	color: #fff;
+}
+
+.back:hover {
+	color: #618967;
+}
+
+.cart__title {
+	padding: 0 20px;
+	border-left: 4px solid #618967;
+	font-family: Gilroy-Bold;
+	font-size: 32px;
+	line-height: 39px;
+	text-transform: uppercase;
+	color: #fff;
+}

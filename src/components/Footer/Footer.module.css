@@ -1,0 +1,26 @@
+.footer {
+	padding: 25px 40px;
+	display: flex;
+	align-items: center;
+	gap: 50px;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+	width: 210px;
+	display: flex;
+	flex-direction: column;
+}
+
+.container span {
+	font-family: Gilroy-Medium;
+	font-size: 12px;
+	line-height: 16px;
+	text-decoration: underline;
+	color: #cfcfcf;
+	cursor: pointer;
+}
+
+.container span:first-of-type {
+	text-decoration: none;
+}

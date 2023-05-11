@@ -1,0 +1,19 @@
+.container {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background: #fff;
+	position: relative;
+	cursor: pointer;
+}
+
+.arrow {
+	width: 16px;
+	height: 16px;
+	border-top: 3px solid #222021;
+	border-left: 3px solid #222021;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: rotate(45deg) translate(-42%, 18%);
+}

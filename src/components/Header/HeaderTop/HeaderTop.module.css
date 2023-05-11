@@ -1,0 +1,13 @@
+.header_top {
+	height: 100px;
+	/* width: 1280px; */
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	/* position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background-color: #44403f; */
+}
