@@ -1,8 +1,8 @@
 import styles from "./Category.module.css";
-import cart from "./../../../assets/images/icon_cart.svg";
 import { useParams } from "react-router-dom";
 import { menu } from "../../../data/menu";
-import { useState } from "react";
+import { Basket } from "./Basket/Basket";
+// import { useState } from "react";
 
 export function Category() {
 	const { url } =
@@ -14,8 +14,7 @@ export function Category() {
 			: category.url === url; //если домашнайаа страница (url === undefined), то вернуть category с холодными закусками
 	}); //получаю значение свойства title из массива menu по url
 
-	const [count, setCount] = useState(0);
-	const countAdd = () => setCount(count + 1);
+	// const [price, setPrice] = useState();
 
 	return (
 		<section className={styles.category}>
@@ -44,14 +43,9 @@ export function Category() {
 								<span className={styles.product__price}>
 									{product.price.toLocaleString()} &#x20bd;
 								</span>
-								<button className={styles.product__button} onClick={countAdd}>
-									В корзину
-									<img src={cart}></img>
-								</button>
+								<Basket />
 							</div>
 						</div>
-
-						<span className={styles.counter}>{count}</span>
 					</div>
 				))}
 			</div>

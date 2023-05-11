@@ -1,5 +1,11 @@
-.sale {
-	font-size: 1.6em;
-	font-weight: 600;
-	color: #fff;
+@import url(./../../styles/fonts.css);
+
+.title {
+	padding: 0 20px;
+	border-left: 4px solid #618967;
+	color: #ffffff;
+	font-family: Gilroy-Bold;
+	font-size: 32px;
+	line-height: 39px;
+	text-transform: uppercase;
 }
