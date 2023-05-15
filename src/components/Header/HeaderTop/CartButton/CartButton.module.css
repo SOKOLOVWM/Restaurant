@@ -1,12 +1,16 @@
 @import url(./../../../../styles/fonts.css);
 
 .cartButton {
-	padding: 8px 0;
+	padding: 8px 8px;
 	border-radius: 10px;
 	background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
 	text-decoration: none;
 	display: flex;
 	cursor: pointer;
+}
+
+.cart {
+	display: none;
 }
 
 .title {
@@ -39,4 +43,32 @@
 	font-size: 12px;
 	line-height: 24px;
 	color: #403c3b;
+}
+
+@media (max-width: 518px) {
+	.cartButton {
+		width: 62px;
+		height: 52px;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.cart {
+		display: inline-block;
+		width: 20px;
+	}
+
+	.title {
+		width: auto;
+		height: auto;
+		margin-top: 2px;
+		border-top: 1px solid rgba(255, 255, 255, 0.3);
+		border-right: none;
+		font-size: 12px;
+		text-transform: lowercase;
+	}
+
+	.count {
+		display: none;
+	}
 }

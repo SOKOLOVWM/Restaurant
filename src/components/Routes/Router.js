@@ -9,10 +9,8 @@ import { Sale } from "../../pages/Sale/Sale";
 export function Roater() {
 	return (
 		<Routes>
-			<Route path="/" element={<Category />} />{" "}
-			{/* если домашнайаа страница, то компонента Category вернет "Холодные закуски" */}
+			<Route path="/" element={<Category />} />
 			<Route path="/:url" element={<Category />} />
-			{/* динамический router отображает компоненту Category с данными длйа соответствующего url */}
 			<Route path="/cart" element={<Cart />} />
 			<Route path="/about" element={<About />} />
 			<Route path="/delivery" element={<Delivery />} />

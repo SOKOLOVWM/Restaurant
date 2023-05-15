@@ -1,10 +1,11 @@
 import styles from "./CartButton.module.css";
+import cart from "./../../../../assets/images/icon_cart.svg";
 import { Link } from "react-router-dom";
 
 export function CartButton() {
 	return (
 		<Link to="/cart" state="true" className={styles.cartButton}>
-			{/* свойстов state определйаетсйа длай того чтобы скрыть Baner и Navigation в Header при переходе в корзину */}
+			<img className={styles.cart} src={cart}></img>
 			<div className={styles.title}>Корзина</div>
 			<div className={styles.count}>
 				<span>4</span>

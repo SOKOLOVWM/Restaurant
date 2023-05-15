@@ -2,8 +2,9 @@ import styles from "./Footer.module.css";
 import { ArrowTop } from "../../common/ArrowTop/ArrowTop";
 import { Logo } from "../../common/Logo/Logo";
 import { NavigationFooter } from "./NavigationFooter/NavigationFooter";
+import { Forecast } from "../../common/Forecast/Forecast";
 
-export function Footer() {
+export function Footer({ forecast }) {
 	return (
 		<footer className={styles.footer}>
 			<ArrowTop />
@@ -15,6 +16,7 @@ export function Footer() {
 				<span>Политика конфиденциальности</span>
 			</div>
 			<NavigationFooter />
+			<Forecast forecast={forecast} />
 		</footer>
 	);
 }

@@ -2,9 +2,22 @@
 	width: 64px;
 	height: 64px;
 	border-radius: 50%;
-	background: #fff;
+	background-color: #fff;
 	position: relative;
 	cursor: pointer;
+}
+
+.container:hover {
+	background-image: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
+}
+
+.container:hover .arrow {
+	border-top: 3px solid #fff;
+	border-left: 3px solid #fff;
+}
+
+.container:active {
+	box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
 }
 
 .arrow {

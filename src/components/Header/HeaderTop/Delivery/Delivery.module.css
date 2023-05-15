@@ -33,3 +33,15 @@
 	background-color: #504b4a;
 	cursor: pointer;
 }
+
+@media (max-width: 1200px) {
+	.delivery {
+		width: 424px;
+	}
+}
+
+@media (max-width: 882px) {
+	.delivery {
+		order: 1;
+	}
+}

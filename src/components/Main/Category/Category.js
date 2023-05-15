@@ -1,23 +1,19 @@
 import styles from "./Category.module.css";
 import { useParams } from "react-router-dom";
 import { menu } from "../../../data/menu";
-import { Basket } from "./Basket/Basket";
-// import { useState } from "react";
+import { BasketCounter } from "./BasketCounter/BasketCounter";
 
 export function Category() {
-	const { url } =
-		useParams(); /* используйа huck с именем useParams из библиотеки react-router-dom получаю значение свойства path динамически переданное router, который вызывает текущую компоненту (Category) */
-	/* useParams применйатьсйа только при работе с Roetes (компонента Category вызываетсйа из Routers) */
+	const { url } = useParams();
+
 	const { title, products } = menu.find((category) => {
 		return url === undefined
 			? category.url === "cold-snack"
-			: category.url === url; //если домашнайаа страница (url === undefined), то вернуть category с холодными закусками
-	}); //получаю значение свойства title из массива menu по url
-
-	// const [price, setPrice] = useState();
+			: category.url === url;
+	});
 
 	return (
-		<section className={styles.category}>
+		<section className={styles.category} key={url}>
 			<h2 className={styles.title}>{title}</h2>
 
 			<div className={styles.products}>
@@ -40,10 +36,7 @@ export function Category() {
 								{product.description}
 							</p>
 							<div className={styles.cart_box}>
-								<span className={styles.product__price}>
-									{product.price.toLocaleString()} &#x20bd;
-								</span>
-								<Basket />
+								<BasketCounter productPrice={product.price} />
 							</div>
 						</div>
 					</div>

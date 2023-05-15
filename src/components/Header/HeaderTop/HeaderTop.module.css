@@ -1,13 +1,25 @@
 .header_top {
-	height: 100px;
-	/* width: 1280px; */
+	padding: 10px 40px;
+	min-height: 100px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
-	/* position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 1;
-	background-color: #44403f; */
+	flex-wrap: wrap;
+	column-gap: 20px;
+	row-gap: 10px;
+}
+
+@media (max-width: 882px) {
+	.header_top {
+		justify-content: start;
+		column-gap: 60px;
+	}
+}
+
+@media (max-width: 518px) {
+	.header_top {
+		justify-content: space-between;
+		column-gap: 20px;
+	}
 }

@@ -7,12 +7,10 @@
 }
 
 .navigation a {
-	display: inline-block;
-	height: 80px;
-	padding: 0 20px;
-	line-height: 80px;
+	padding: 30px 20px;
 	text-decoration: none;
+	text-align: center;
 	font-family: Gilroy-Medium;
-	font-size: 18px;
-	color: #ffffff;
+	font-size: calc(14px + 0.25vw);
+	color: #fff;
 }
