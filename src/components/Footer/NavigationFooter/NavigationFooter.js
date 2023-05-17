@@ -21,6 +21,7 @@ export function NavigationFooter({ isShowMenu, setIsShowMenu }) {
 					<Link
 						key={page.id}
 						to={page.url}
+						state="true"
 						onClick={() => setIsShowMenu(!isShowMenu)}
 					>
 						{page.title}

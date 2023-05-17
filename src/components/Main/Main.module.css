@@ -2,3 +2,40 @@
 	flex: 1;
 	padding: 50px 90px;
 }
+
+.styleContainer {
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+.styleBack {
+	display: inline-block;
+	padding: 10px;
+	text-decoration: none;
+	font-family: Gilroy-Bold;
+	font-size: calc(16.4px + 1vw);
+	line-height: calc(22px + 1vw);
+	color: #fff;
+}
+
+.styleBack:hover {
+	color: #618967;
+}
+
+.styleTitle {
+	padding: 0 20px;
+	border-left: 4px solid #618967;
+	color: #ffffff;
+	font-family: Gilroy-Bold;
+	font-size: 32px;
+	line-height: 39px;
+	text-transform: uppercase;
+}
+
+@media (max-width: 882px) {
+	.styleContainer {
+		margin-top: 134px;
+	}
+}

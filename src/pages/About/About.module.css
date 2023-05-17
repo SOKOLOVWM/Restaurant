@@ -1,15 +1,1 @@
 @import url(./../../styles/fonts.css);
-
-.about {
-	margin-top: 100px;
-}
-
-.title {
-	padding: 0 20px;
-	border-left: 4px solid #618967;
-	color: #ffffff;
-	font-family: Gilroy-Bold;
-	font-size: 32px;
-	line-height: 39px;
-	text-transform: uppercase;
-}

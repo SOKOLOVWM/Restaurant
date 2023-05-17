@@ -6,16 +6,61 @@ import { Delivery } from "../../pages/Delivery/Delivery";
 import { Refund } from "../../pages/Refund/Refund";
 import { Sale } from "../../pages/Sale/Sale";
 
-export function Roater() {
+export function Roater({ styleContainer, styleBack, styleTitle }) {
 	return (
 		<Routes>
 			<Route path="/" element={<Category />} />
 			<Route path="/:url" element={<Category />} />
-			<Route path="/cart" element={<Cart />} />
-			<Route path="/about" element={<About />} />
-			<Route path="/delivery" element={<Delivery />} />
-			<Route path="/refund" element={<Refund />} />
-			<Route path="/sale" element={<Sale />} />
+			<Route
+				path="/cart"
+				element={
+					<Cart
+						styleContainer={styleContainer}
+						styleBack={styleBack}
+						styleTitle={styleTitle}
+					/>
+				}
+			/>
+			<Route
+				path="/about"
+				element={
+					<About
+						styleContainer={styleContainer}
+						styleBack={styleBack}
+						styleTitle={styleTitle}
+					/>
+				}
+			/>
+			<Route
+				path="/delivery"
+				element={
+					<Delivery
+						styleContainer={styleContainer}
+						styleBack={styleBack}
+						styleTitle={styleTitle}
+					/>
+				}
+			/>
+			<Route
+				path="/refund"
+				element={
+					<Refund
+						styleContainer={styleContainer}
+						styleBack={styleBack}
+						styleTitle={styleTitle}
+					/>
+				}
+			/>
+			<Route
+				path="/sale"
+				element={
+					<Sale
+						styleContainer={styleContainer}
+						styleBack={styleBack}
+						styleTitle={styleTitle}
+					/>
+				}
+			/>
 		</Routes>
 	);
 }

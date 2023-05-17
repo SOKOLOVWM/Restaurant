@@ -4,7 +4,11 @@ import { Roater } from "../Routes/Router";
 export function Main() {
 	return (
 		<main className={styles.main}>
-			<Roater />
+			<Roater
+				styleContainer={styles.styleContainer}
+				styleBack={styles.styleBack}
+				styleTitle={styles.styleTitle}
+			/>
 		</main>
 	);
 }
