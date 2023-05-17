@@ -1,5 +1,9 @@
 @import url(./../../styles/fonts.css);
 
+.about {
+	margin-top: 100px;
+}
+
 .title {
 	padding: 0 20px;
 	border-left: 4px solid #618967;

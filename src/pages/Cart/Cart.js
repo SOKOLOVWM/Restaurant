@@ -7,7 +7,7 @@ export function Cart() {
 			<Link className={styles.back} to="/">
 				&lt; к выбору блюда
 			</Link>
-			<header className={styles.cart__title}>Корзина</header>
+			<h2 className={styles.cart__title}>Корзина</h2>
 		</section>
 	);
 }

@@ -5,14 +5,16 @@ import { Contacts } from "./Contacts/Contacts";
 import { CartButton } from "./CartButton/CartButton";
 import { Humburger } from "../../../common/Humburger/Humburger";
 
-export function HeaderTop() {
+export function HeaderTop({ isShowMenu, setIsShowMenu }) {
 	return (
 		<div className={styles.header_top}>
-			<Humburger />
-			<Logo />
-			<Delivery />
-			<Contacts />
-			<CartButton />
+			<div className={styles.content}>
+				<Humburger isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
+				<Logo />
+				<Delivery />
+				<Contacts />
+				<CartButton />
+			</div>
 		</div>
 	);
 }

@@ -4,7 +4,7 @@ import { Logo } from "../../common/Logo/Logo";
 import { NavigationFooter } from "./NavigationFooter/NavigationFooter";
 import { Forecast } from "../../common/Forecast/Forecast";
 
-export function Footer({ forecast }) {
+export function Footer({ isShowMenu, setIsShowMenu, forecast }) {
 	return (
 		<footer className={styles.footer}>
 			<ArrowTop />
@@ -15,7 +15,7 @@ export function Footer({ forecast }) {
 				<span>Карта сайта</span>
 				<span>Политика конфиденциальности</span>
 			</div>
-			<NavigationFooter />
+			<NavigationFooter isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
 			<Forecast forecast={forecast} />
 		</footer>
 	);

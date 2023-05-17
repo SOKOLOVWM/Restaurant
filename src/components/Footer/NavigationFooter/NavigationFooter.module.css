@@ -1,13 +1,12 @@
 @import url(./../../../styles/fonts.css);
 
-.navigation {
+.content {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: space-between;
 	gap: 40px;
 }
 
-.navigation a {
+.content a {
 	font-family: Gilroy-Medium;
 	font-size: 20px;
 	line-height: 24px;
@@ -15,8 +14,63 @@
 	color: #fff;
 }
 
+.content a:hover {
+	font-weight: 800;
+}
+
 @media (max-width: 1280px) {
 	.navigation {
-		display: none;
+		position: absolute;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(-130%);
+		transition: transform 0.2s ease-in-out;
+	}
+
+	.showMenu {
+		height: 100vh;
+		width: 40vw;
+		display: flex;
+		position: fixed;
+		top: 100px;
+		left: 0;
+		background-color: #504b4a;
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0);
+	}
+
+	.content {
+		width: 100%;
+		padding: 20px 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: center;
+		gap: 20px;
+	}
+
+	.blur {
+		height: 100vh;
+		width: 100vw;
+		backdrop-filter: blur(2px);
+		position: absolute;
+		left: 40vw;
+	}
+}
+
+@media (max-width: 882px) {
+	.showMenu {
+		top: 134px;
+	}
+}
+
+@media (max-width: 518px) {
+	.showMenu {
+		width: 100%;
+	}
+
+	.blur {
+		width: 0;
 	}
 }

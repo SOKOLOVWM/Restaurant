@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 export function App() {
 	const [forecast, setForecast] = useState({});
+	const [isShowMenu, setIsShowMenu] = useState(false);
 
 	useEffect(() => {
 		fetch(
@@ -27,9 +28,13 @@ export function App() {
 
 	return (
 		<div className={styles.container}>
-			<Header />
+			<Header isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
 			<Main />
-			<Footer forecast={forecast} />
+			<Footer
+				isShowMenu={isShowMenu}
+				setIsShowMenu={setIsShowMenu}
+				forecast={forecast}
+			/>
 		</div>
 	);
 }

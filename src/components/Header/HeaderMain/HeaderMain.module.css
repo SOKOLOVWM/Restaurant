@@ -1,9 +1,17 @@
 .header_main {
 	height: 484px;
+	margin-top: 100px;
 	display: flex;
 	align-items: center;
 	background-image: url(./../../../assets/images/banner.jpg);
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-position: 100% 20%;
+}
+
+@media (max-width: 882px) {
+	.header_main {
+		margin-top: 134px;
+		background-size: cover;
+	}
 }

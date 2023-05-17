@@ -1,7 +1,19 @@
 .header_top {
-	padding: 10px 40px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: linear-gradient(360deg, #211f20 0%, #44403f 100%);
+	z-index: 1;
+}
+
+.content {
 	min-height: 100px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	width: 100%;
+	max-width: 1440px;
+	padding: 10px 40px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -11,14 +23,14 @@
 }
 
 @media (max-width: 882px) {
-	.header_top {
-		justify-content: start;
+	.content {
+		justify-content: center;
 		column-gap: 60px;
 	}
 }
 
 @media (max-width: 518px) {
-	.header_top {
+	.content {
 		justify-content: space-between;
 		column-gap: 20px;
 	}
