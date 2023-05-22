@@ -1,9 +1,8 @@
 @import url(./../../styles/fonts.css);
 
-.container {
-	display: flex;
-	justify-content: center;
-	gap: 20px;
+.order {
+	max-width: 800px;
+	align-self: center;
 }
 
 .form {
@@ -13,7 +12,6 @@
 }
 
 .form__container {
-	width: 800px;
 	padding: 30px;
 	display: flex;
 	flex-direction: column;
@@ -37,7 +35,8 @@
 }
 
 .form__box {
-	width: 600px;
+	width: 100%;
+	max-width: 600px;
 	display: flex;
 	gap: 15px;
 }
@@ -58,6 +57,10 @@
 	outline: none;
 }
 
+.form__agreement {
+	flex-wrap: nowrap;
+}
+
 .choiceContainer {
 	display: flex;
 	align-items: center;
@@ -71,6 +74,11 @@
 .choiceBox {
 	display: flex;
 	border-radius: 10px;
+}
+
+.choiceBox div {
+	width: 100%;
+	display: flex;
 }
 
 .choiceBox input {
@@ -91,6 +99,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 	cursor: pointer;
 }
 
@@ -103,6 +112,7 @@
 }
 
 .choiceAddBlock {
+	height: 60px;
 	width: 170px;
 	padding: 20px 30px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
@@ -136,20 +146,26 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .persons {
 	height: 60px;
+	width: 280px;
 	padding: 0 30px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 10px;
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
 	align-self: start;
-	gap: 20px;
 	font-size: 16px;
 	line-height: 19px;
 	background-color: transparent;
 	color: #fff;
 }
 
-.persons button {
+.persons__count {
+	display: flex;
+	align-items: center;
+}
+
+.persons__count button {
 	padding: 4px 8px;
 	border: none;
 	background-color: transparent;
@@ -160,7 +176,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 	cursor: pointer;
 }
 
-.persons span:last-of-type {
+.persons__count span {
 	width: 20px;
 	font-family: Gilroy-Medium;
 	font-size: 18px;
@@ -234,7 +250,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .agreement label::before {
 	content: "";
 	display: inline-block;
-	width: 22px;
+	min-width: 22px;
 	height: 22px;
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 3px;
@@ -254,7 +270,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 }
 
 .executeButton {
-	padding: 20px 50px;
+	min-width: 210px;
+	padding: 20px 0;
 	border: none;
 	border-radius: 10px;
 	font-family: Gilroy-Bold;
@@ -283,4 +300,77 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 	border-radius: 10px;
 	background-image: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
 	color: #fff;
+}
+
+@media (max-width: 1280px) {
+	.choiceButton {
+		width: calc(180px - (14px * 4) + 4vw);
+		font-size: calc(16px - 4px + 0.2vw);
+	}
+}
+
+@media (max-width: 754px) {
+	.form__content {
+		flex-direction: column;
+	}
+
+	.form__box {
+		flex-direction: column;
+	}
+
+	.form__input {
+		width: auto;
+		flex: 1;
+	}
+
+	.choiceContainer {
+		flex-direction: column;
+		align-items: start;
+	}
+
+	.choiceAddBlock__time {
+		width: 280px;
+	}
+
+	.form__agreement {
+		flex-direction: row;
+	}
+
+	.executeButton {
+		align-self: center;
+	}
+}
+
+@media (max-width: 600px) {
+	.form__agreement {
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.form__agreement label {
+		max-width: 260px;
+	}
+
+	.form__agreement button {
+		order: -1;
+	}
+}
+
+@media (max-width: 550px) {
+	.choiceBoxWidth {
+		width: 100%;
+	}
+
+	.choiceButtonSmall {
+		width: 100%;
+		padding: 0 4px;
+	}
+
+	.choiceAddBlock {
+		width: 100%;
+	}
+
+	.choiceAddBlock__time {
+		width: 280px;
+	}
 }
