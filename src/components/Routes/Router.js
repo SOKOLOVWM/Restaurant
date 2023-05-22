@@ -5,6 +5,7 @@ import { About } from "./../../pages/About/About";
 import { Delivery } from "../../pages/Delivery/Delivery";
 import { Refund } from "../../pages/Refund/Refund";
 import { Sale } from "../../pages/Sale/Sale";
+import { Order } from "../../pages/Order/Order";
 
 export function Roater({ styleContainer, styleBack, styleTitle }) {
 	return (
@@ -55,6 +56,16 @@ export function Roater({ styleContainer, styleBack, styleTitle }) {
 				path="/sale"
 				element={
 					<Sale
+						styleContainer={styleContainer}
+						styleBack={styleBack}
+						styleTitle={styleTitle}
+					/>
+				}
+			/>
+			<Route
+				path="/order"
+				element={
+					<Order
 						styleContainer={styleContainer}
 						styleBack={styleBack}
 						styleTitle={styleTitle}

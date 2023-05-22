@@ -8,6 +8,11 @@ export function Cart({ styleContainer, styleBack, styleTitle }) {
 				&lt; к выбору блюд
 			</Link>
 			<h2 className={`${styles.title} ${styleTitle}`}>Корзина</h2>
+			<div className={styles.orderBox}>
+				<Link className={styles.orderButton} to="/order" state="true">
+					Оформить заказ
+				</Link>
+			</div>
 		</section>
 	);
 }

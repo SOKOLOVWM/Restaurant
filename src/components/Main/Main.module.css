@@ -11,7 +11,7 @@
 }
 
 .styleBack {
-	display: inline-block;
+	align-self: start;
 	padding: 10px;
 	text-decoration: none;
 	font-family: Gilroy-Bold;
@@ -27,7 +27,7 @@
 .styleTitle {
 	padding: 0 20px;
 	border-left: 4px solid #618967;
-	color: #ffffff;
+	color: #fff;
 	font-family: Gilroy-Bold;
 	font-size: 32px;
 	line-height: 39px;

@@ -1,1 +1,25 @@
 @import url(./../../styles/fonts.css);
+
+.orderBox {
+	padding: 30px;
+	border-radius: 10px;
+	display: flex;
+	align-self: start;
+	background-image: linear-gradient(90deg, #494544 0%, #504b4a 100%);
+	text-align: center;
+}
+
+.orderButton {
+	padding: 16px 50px;
+	border-radius: 10px;
+	background-image: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
+	font-family: Gilroy-Bold;
+	font-size: 14px;
+	line-height: 17px;
+	text-decoration: none;
+	color: #fff;
+}
+
+.orderButton:active {
+	box-shadow: 0 0 4px #618967;
+}
