@@ -1,6 +1,7 @@
 import styles from "./Order.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useValidate } from "../../validation/useValidate";
 import clock from "./../../assets/images/icon_clock.svg";
 
 const initialState = {
@@ -18,21 +19,42 @@ const initialState = {
 	time: "soon",
 	persons: "1",
 	callback: "noCall",
-	agreement: "",
+	agreement: false,
 };
 
 export function Order({ styleContainer, styleBack, styleTitle }) {
 	const [state, setState] = useState(initialState);
-	const [isDelivery, setIsDelivery] = useState(true);
+	// const [isDelivery, setIsDelivery] = useState(true);
 	const [isCash, setIsCash] = useState(false);
 	const [isTime, setIsTime] = useState(false);
 	const [persons, setPersons] = useState(1);
-	const [isAgree, setIsAgree] = useState(false);
+	// const [isAgree, setIsAgree] = useState(false);
 	const [isShow, setIsShow] = useState(false);
+	const { error, validate } = useValidate();
+	const [isDisabled, setIsDisabled] = useState(true);
+
+	useEffect(() => {
+		const disable =
+			Object.values(error).find((element) => element !== "") ||
+			state.name === "" ||
+			state.phone === "" ||
+			state.street === "" ||
+			state.house === "" ||
+			state.agreement === false;
+		setIsDisabled(disable);
+	}, [
+		error,
+		state.name,
+		state.phone,
+		state.street,
+		state.house,
+		state.agreement,
+	]);
 
 	function handleChange({ target }) {
 		const { name, value, type, checked } = target;
 		const stateValue = type === "checkbox" ? checked : value;
+		validate(name, value);
 		setState({ ...state, [name]: stateValue });
 	}
 
@@ -69,6 +91,11 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 							onChange={handleChange}
 						></input>
 					</div>
+
+					{(error.name && <span className={styles.error}>{error.name}</span>) ||
+						(error.phone && (
+							<span className={styles.error}>{error.phone}</span>
+						))}
 				</div>
 
 				<div className={styles.form__container}>
@@ -82,10 +109,7 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 									type="radio"
 									value="delivery"
 									checked={state.delivery === "delivery"}
-									onChange={(event) => {
-										handleChange(event);
-										setIsDelivery(true);
-									}}
+									onChange={handleChange}
 								/>
 								<label
 									className={`${styles.choiceButton} ${styles.choiceLeft}`}
@@ -100,10 +124,7 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 									name="delivery"
 									type="radio"
 									value="pickup"
-									onChange={(event) => {
-										handleChange(event);
-										setIsDelivery(false);
-									}}
+									onChange={handleChange}
 								/>
 								<label
 									className={`${styles.choiceButton} ${styles.choiceRight}`}
@@ -113,7 +134,7 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 								</label>
 							</div>
 						</div>
-						{isDelivery && (
+						{state.delivery === "delivery" && (
 							<div className={styles.deliveryTime}>
 								<img src={clock} alt="clock"></img>
 								<span>Доставим через 1 час 30 минут</span>
@@ -141,6 +162,18 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 								onChange={handleChange}
 							></input>
 						</div>
+
+						{(error.street && (
+							<span className={`${styles.error} ${styles.errorBox}`}>
+								{error.street}
+							</span>
+						)) ||
+							(error.house && (
+								<span className={`${styles.error} ${styles.errorBox}`}>
+									{error.house}
+								</span>
+							))}
+
 						<div className={styles.form__box}>
 							<input
 								className={`${styles.form__input} ${styles.flat}`}
@@ -167,6 +200,23 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 								onChange={handleChange}
 							></input>
 						</div>
+
+						{(error.flat && (
+							<span className={`${styles.error} ${styles.errorBox}`}>
+								{error.flat}
+							</span>
+						)) ||
+							(error.entrance && (
+								<span className={`${styles.error} ${styles.errorBox}`}>
+									{error.entrance}
+								</span>
+							)) ||
+							(error.floor && (
+								<span className={`${styles.error} ${styles.errorBox}`}>
+									{error.floor}
+								</span>
+							))}
+
 						<div className={styles.form__box}>
 							<input
 								className={styles.form__input}
@@ -372,10 +422,8 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 								id="agreement"
 								type="checkbox"
 								name="agreement"
-								onChange={(event) => {
-									handleChange(event);
-									setIsAgree(!isAgree);
-								}}
+								value={state.agreement}
+								onChange={(event) => handleChange(event)}
 							/>
 							<label htmlFor="agreement">
 								<span>
@@ -387,10 +435,17 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 						<button
 							className={styles.executeButton}
 							type="submit"
-							disabled={!isAgree}
+							disabled={isDisabled}
 						>
 							Оформить заказ
 						</button>
+						{/* <button
+							className={styles.executeButton}
+							type="submit"
+							disabled={!isAgree}
+						>
+							Оформить заказ
+						</button> */}
 					</div>
 				</div>
 

@@ -38,6 +38,7 @@
 	width: 100%;
 	max-width: 600px;
 	display: flex;
+	flex-wrap: wrap;
 	gap: 15px;
 }
 
@@ -59,6 +60,18 @@
 
 .form__agreement {
 	flex-wrap: nowrap;
+}
+
+.errorBox {
+	width: 100%;
+	max-width: 600px;
+	display: flex;
+	justify-content: center;
+}
+
+.error {
+	color: #72a479;
+	text-align: center;
 }
 
 .choiceContainer {
