@@ -1,14 +1,11 @@
 import styles from "./Sale.module.css";
-import { Link } from "react-router-dom";
+import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Title } from "../../common/Title/Title";
 
-export function Sale({ styleContainer, styleBack }) {
+export function Sale() {
 	return (
-		<section className={`${styles.sale} ${styleContainer}`}>
-			<Link className={styleBack} to="/">
-				&lt; к выбору блюд
-			</Link>
+		<MainContainer addStyles={styles.sale}>
 			<Title title="Акции" />
-		</section>
+		</MainContainer>
 	);
 }

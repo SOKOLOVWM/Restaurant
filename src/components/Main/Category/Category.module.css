@@ -1,20 +1,8 @@
 @import url(./../../../styles/fonts.css);
-
+/* 
 .category {
-	display: flex;
-	flex-direction: column;
-	row-gap: 50px;
-}
-
-.title {
-	padding: 0 20px;
-	border-left: 4px solid #618967;
-	color: #fff;
-	font-family: Gilroy-Bold;
-	font-size: calc(16.4px + 1vw);
-	line-height: calc(22px + 1vw);
-	text-transform: uppercase;
-}
+	gap: 20px;
+} */
 
 .products {
 	display: flex;

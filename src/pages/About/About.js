@@ -1,14 +1,11 @@
 import styles from "./About.module.css";
-import { Link } from "react-router-dom";
+import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Title } from "../../common/Title/Title";
 
-export function About({ styleContainer, styleBack }) {
+export function About() {
 	return (
-		<section className={`${styles.about} ${styleContainer}`}>
-			<Link className={styleBack} to="/">
-				&lt; к выбору блюд
-			</Link>
+		<MainContainer addStyles={styles.about}>
 			<Title title="О ресторане" />
-		</section>
+		</MainContainer>
 	);
 }

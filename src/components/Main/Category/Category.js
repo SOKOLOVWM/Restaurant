@@ -1,10 +1,11 @@
-import styles from "./Category.module.css";
 import { useParams } from "react-router-dom";
 import { BasketCounter } from "./BasketCounter/BasketCounter";
 import { useReducer } from "react";
 import { productReducer } from "../../../reducer/productReducer";
 import { initialState } from "../../../reducer/initialState";
+import { MainContainer } from "../../../common/MainContainer/MainContainer";
 import { Title } from "../../../common/Title/Title";
+import styles from "./Category.module.css";
 
 export function Category() {
 	const [state, dispatch] = useReducer(productReducer, initialState);
@@ -21,7 +22,7 @@ export function Category() {
 	}); //ищу нужную категорию в state по url и достаю из нее title, products, url
 
 	return (
-		<section className={styles.category} key={url}>
+		<MainContainer backward={false} addStyles={styles.category} key={url}>
 			<Title title={title} />
 
 			<div className={styles.products}>
@@ -56,6 +57,6 @@ export function Category() {
 					</div>
 				))}
 			</div>
-		</section>
+		</MainContainer>
 	);
 }

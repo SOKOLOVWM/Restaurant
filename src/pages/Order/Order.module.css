@@ -1,8 +1,11 @@
 @import url(./../../styles/fonts.css);
 
 .order {
+	width: 100%;
 	max-width: 800px;
+	margin-top: 100px;
 	align-self: center;
+	gap: 20px;
 }
 
 .form {
@@ -319,6 +322,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 	.choiceButton {
 		width: calc(180px - (14px * 4) + 4vw);
 		font-size: calc(16px - 4px + 0.2vw);
+	}
+}
+
+@media (max-width: 882px) {
+	.order {
+		margin-top: 134px;
 	}
 }
 

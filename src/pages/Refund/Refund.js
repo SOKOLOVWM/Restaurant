@@ -1,14 +1,11 @@
 import styles from "./Refund.module.css";
-import { Link } from "react-router-dom";
+import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Title } from "../../common/Title/Title";
 
-export function Refund({ styleContainer, styleBack }) {
+export function Refund() {
 	return (
-		<section className={`${styles.refund} ${styleContainer}`}>
-			<Link className={styleBack} to="/">
-				&lt; к выбору блюд
-			</Link>
+		<MainContainer addStyles={styles.refund}>
 			<Title title="Возврат товара" />
-		</section>
+		</MainContainer>
 	);
 }

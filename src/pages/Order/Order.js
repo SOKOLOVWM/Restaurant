@@ -3,6 +3,7 @@ import clock from "./../../assets/images/icon_clock.svg";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useValidate } from "../../validation/useValidate";
+import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Title } from "../../common/Title/Title";
 import { OrderComponent } from "./OrderComponent/OrderComponent";
 
@@ -24,7 +25,7 @@ const initialState = {
 	agreement: false,
 };
 
-export function Order({ styleContainer, styleBack }) {
+export function Order() {
 	const [state, setState] = useState(initialState);
 	const [isShow, setIsShow] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(true);
@@ -68,10 +69,7 @@ export function Order({ styleContainer, styleBack }) {
 	}
 
 	return (
-		<section className={`${styles.order} ${styleContainer}`}>
-			<Link className={styleBack} to="/">
-				&lt; к выбору блюд
-			</Link>
+		<MainContainer addStyles={styles.order}>
 			<Title title="Оформление заказа" />
 
 			<form className={styles.form} onSubmit={handleOrder}>
@@ -392,7 +390,7 @@ export function Order({ styleContainer, styleBack }) {
 					</div>
 				</OrderComponent>
 
-				<div className={styles.form__container}>
+				<OrderComponent>
 					<div className={`${styles.form__content} ${styles.form__agreement}`}>
 						<div className={styles.agreement}>
 							<input
@@ -417,12 +415,12 @@ export function Order({ styleContainer, styleBack }) {
 							Оформить заказ
 						</button>
 					</div>
-				</div>
+				</OrderComponent>
 
 				{isShow && (
 					<pre className={styles.output}>{JSON.stringify(state, null, 2)}</pre>
 				)}
 			</form>
-		</section>
+		</MainContainer>
 	);
 }

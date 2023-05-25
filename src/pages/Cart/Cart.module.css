@@ -1,5 +1,10 @@
 @import url(./../../styles/fonts.css);
 
+.cart {
+	margin-top: 100px;
+	gap: 20px;
+}
+
 .orderBox {
 	padding: 30px;
 	border-radius: 10px;
@@ -22,4 +27,10 @@
 
 .orderButton:active {
 	box-shadow: 0 0 4px #618967;
+}
+
+@media (max-width: 882px) {
+	.cart {
+		margin-top: 134px;
+	}
 }
