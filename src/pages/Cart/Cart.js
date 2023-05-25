@@ -1,13 +1,14 @@
 import styles from "./Cart.module.css";
 import { Link } from "react-router-dom";
+import { Title } from "../../common/Title/Title";
 
-export function Cart({ styleContainer, styleBack, styleTitle }) {
+export function Cart({ styleContainer, styleBack }) {
 	return (
 		<section className={`${styles.cart} ${styleContainer}`}>
 			<Link className={styleBack} to="/">
 				&lt; к выбору блюд
 			</Link>
-			<h2 className={`${styles.title} ${styleTitle}`}>Корзина</h2>
+			<Title title="Корзина" />
 			<div className={styles.orderBox}>
 				<Link className={styles.orderButton} to="/order" state="true">
 					Оформить заказ

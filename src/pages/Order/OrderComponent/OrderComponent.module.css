@@ -1,0 +1,17 @@
+@import url(./../../../styles/fonts.css);
+
+.container {
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 30px;
+	background: linear-gradient(90deg, #494544 0%, #504b4a 100%);
+	border-radius: 10px;
+}
+
+.title {
+	font-family: Gilroy-Bold;
+	font-size: 18px;
+	line-height: 22px;
+	color: #fff;
+}

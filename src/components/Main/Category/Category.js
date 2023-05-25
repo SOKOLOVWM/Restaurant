@@ -1,13 +1,13 @@
 import styles from "./Category.module.css";
 import { useParams } from "react-router-dom";
-import { menu } from "../../../data/menu";
 import { BasketCounter } from "./BasketCounter/BasketCounter";
 import { useReducer } from "react";
 import { productReducer } from "../../../reducer/productReducer";
 import { initialState } from "../../../reducer/initialState";
+import { Title } from "../../../common/Title/Title";
 
 export function Category() {
-	const [state, dispatch] = useReducer(productReducer, initialState); //достаем из productReducer dispatch, из initialState state
+	const [state, dispatch] = useReducer(productReducer, initialState);
 	const { url } = useParams();
 
 	const {
@@ -22,7 +22,7 @@ export function Category() {
 
 	return (
 		<section className={styles.category} key={url}>
-			<h2 className={styles.title}>{title}</h2>
+			<Title title={title} />
 
 			<div className={styles.products}>
 				{products.map((product) => (
@@ -45,9 +45,9 @@ export function Category() {
 							<div className={styles.cart_box}>
 								<BasketCounter
 									productPrice={product.price}
-									cartPrice={product.cartPrice} //передаем cartPrice
+									cartPrice={product.cartPrice}
 									cartCount={product.cartCount}
-									dispatch={dispatch} //передаем dispatch в кнопку корзины
+									dispatch={dispatch}
 									id={product.id}
 									category={categoryUrl}
 								/>

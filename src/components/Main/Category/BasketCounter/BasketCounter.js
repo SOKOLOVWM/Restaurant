@@ -3,6 +3,7 @@ import cart from "./../../../../assets/images/icon_cart.svg";
 import { useState } from "react";
 import { INCREASE_PRICE } from "../../../../reducer/types";
 import { DECREASE_PRICE } from "../../../../reducer/types";
+import { Button } from "../../../../common/Button/Button";
 
 export function BasketCounter({
 	productPrice,
@@ -20,6 +21,8 @@ export function BasketCounter({
 			id: currentTarget.id,
 			category: category,
 		});
+
+		console.log(currentTarget.id);
 	}; //currentTarget это объект на который повешен данный обработчик (кнопки + и -)
 
 	const handleCountSub = ({ currentTarget }) => {
@@ -32,6 +35,8 @@ export function BasketCounter({
 				category: category,
 			});
 		}
+
+		console.log(currentTarget.id);
 	};
 
 	function handleCartClick() {
@@ -42,23 +47,21 @@ export function BasketCounter({
 		return (
 			<>
 				<span className={styles.counter}>{cartCount}</span>
-				<button
-					className={styles.buttonCountChange}
+				<Button
+					title="-"
 					id={id}
-					onClick={handleCountSub}
-				>
-					-
-				</button>
+					handleClick={handleCountSub}
+					addStyles={styles.buttonCountChange}
+				/>
 				<span className={styles.price}>
 					{cartPrice.toLocaleString()} &#x20bd;
 				</span>
-				<button
-					className={styles.buttonCountChange}
+				<Button
+					title="+"
 					id={id}
-					onClick={handleCountAdd}
-				>
-					+
-				</button>
+					handleClick={handleCountAdd}
+					addStyles={styles.buttonCountChange}
+				/>
 			</>
 		);
 	}
@@ -69,10 +72,7 @@ export function BasketCounter({
 				{productPrice.toLocaleString()} &#x20bd;
 			</span>
 
-			<button className={styles.buttonAddToCart} onClick={handleCartClick}>
-				В корзину
-				<img src={cart}></img>
-			</button>
+			<Button title="В корзину" image={cart} handleClick={handleCartClick} />
 		</>
 	);
 }

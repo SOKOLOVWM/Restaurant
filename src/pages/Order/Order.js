@@ -1,8 +1,10 @@
 import styles from "./Order.module.css";
+import clock from "./../../assets/images/icon_clock.svg";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useValidate } from "../../validation/useValidate";
-import clock from "./../../assets/images/icon_clock.svg";
+import { Title } from "../../common/Title/Title";
+import { OrderComponent } from "./OrderComponent/OrderComponent";
 
 const initialState = {
 	name: "",
@@ -22,16 +24,18 @@ const initialState = {
 	agreement: false,
 };
 
-export function Order({ styleContainer, styleBack, styleTitle }) {
+export function Order({ styleContainer, styleBack }) {
 	const [state, setState] = useState(initialState);
-	// const [isDelivery, setIsDelivery] = useState(true);
-	const [isCash, setIsCash] = useState(false);
-	const [isTime, setIsTime] = useState(false);
-	const [persons, setPersons] = useState(1);
-	// const [isAgree, setIsAgree] = useState(false);
 	const [isShow, setIsShow] = useState(false);
-	const { error, validate } = useValidate();
 	const [isDisabled, setIsDisabled] = useState(true);
+	const { error, validate } = useValidate();
+
+	// const [width, setWidth] = useState(window.innerWidth);
+
+	// useEffect(() => {
+	// 	setWidth(window.innerWidth);
+	// 	console.log(width);
+	// }, [width]);
 
 	useEffect(() => {
 		const disable =
@@ -68,11 +72,10 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 			<Link className={styleBack} to="/">
 				&lt; к выбору блюд
 			</Link>
-			<h2 className={`${styles.title} ${styleTitle}`}>Оформление заказа</h2>
+			<Title title="Оформление заказа" />
 
 			<form className={styles.form} onSubmit={handleOrder}>
-				<div className={styles.form__container}>
-					<h4 className={styles.form__title}>1. Контактная информация</h4>
+				<OrderComponent title="1. Контактная информация">
 					<div className={styles.form__content}>
 						<input
 							className={styles.form__input}
@@ -96,10 +99,9 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 						(error.phone && (
 							<span className={styles.error}>{error.phone}</span>
 						))}
-				</div>
+				</OrderComponent>
 
-				<div className={styles.form__container}>
-					<h4 className={styles.form__title}>2. Доставка</h4>
+				<OrderComponent title="2. Доставка">
 					<div className={styles.choiceContainer}>
 						<div className={styles.choiceBox}>
 							<div>
@@ -228,11 +230,9 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 							></input>
 						</div>
 					</div>
-				</div>
+				</OrderComponent>
 
-				<div className={styles.form__container}>
-					<h4 className={styles.form__title}>3. Оплатить</h4>
-
+				<OrderComponent title="3. Оплатить">
 					<div className={styles.choiceContainer}>
 						<div className={`${styles.choiceBox} ${styles.choiceBoxWidth}`}>
 							<div>
@@ -242,10 +242,7 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 									type="radio"
 									value="online"
 									checked={state.payment === "online"}
-									onChange={(event) => {
-										handleChange(event);
-										setIsCash(false);
-									}}
+									onChange={handleChange}
 								/>
 								<label
 									className={`${styles.choiceButton} ${styles.choiceButtonSmall} ${styles.choiceLeft}`}
@@ -260,10 +257,7 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 									name="payment"
 									type="radio"
 									value="card"
-									onChange={(event) => {
-										handleChange(event);
-										setIsCash(false);
-									}}
+									onChange={handleChange}
 								/>
 								<label
 									className={`${styles.choiceButton} ${styles.choiceButtonSmall}`}
@@ -278,10 +272,7 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 									name="payment"
 									type="radio"
 									value="cash"
-									onChange={(event) => {
-										handleChange(event);
-										setIsCash(true);
-									}}
+									onChange={handleChange}
 								/>
 								<label
 									className={`${styles.choiceButton} ${styles.choiceButtonSmall} ${styles.choiceRight}`}
@@ -293,7 +284,7 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 						</div>
 					</div>
 
-					{isCash && (
+					{state.payment === "cash" && (
 						<input
 							className={styles.choiceAddBlock}
 							type="text"
@@ -303,10 +294,9 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 							onChange={handleChange}
 						></input>
 					)}
-				</div>
+				</OrderComponent>
 
-				<div className={styles.form__container}>
-					<h4 className={styles.form__title}>4. Когда доставить</h4>
+				<OrderComponent title="4. Когда доставить">
 					<div className={styles.choiceContainer}>
 						<div className={styles.choiceBox}>
 							<div>
@@ -316,10 +306,7 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 									type="radio"
 									value="soon"
 									checked={state.time === "soon"}
-									onChange={(event) => {
-										handleChange(event);
-										setIsTime(false);
-									}}
+									onChange={handleChange}
 								/>
 								<label
 									className={`${styles.choiceButton} ${styles.choiceLeft}`}
@@ -333,10 +320,7 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 									id="time"
 									name="time"
 									type="radio"
-									onChange={(event) => {
-										handleChange(event);
-										setIsTime(true);
-									}}
+									onChange={handleChange}
 								/>
 								<label
 									className={`${styles.choiceButton} ${styles.choiceRight}`}
@@ -346,7 +330,7 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 								</label>
 							</div>
 						</div>
-						{isTime && (
+						{state.time !== "soon" && (
 							<input
 								className={`${styles.choiceAddBlock} ${styles.choiceAddBlock__time}`}
 								type="time"
@@ -364,25 +348,18 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 							<button
 								type="button"
 								name="persons"
-								value={persons}
-								onClick={(event) => {
-									if (persons > 1) {
-										setPersons(persons - 1);
-										handleChange(event);
-									}
-								}}
+								value={+state.persons - 1}
+								disabled={+state.persons <= 1}
+								onClick={handleChange}
 							>
 								-
 							</button>
-							<span>{persons}</span>
+							<span>{state.persons}</span>
 							<button
 								type="button"
 								name="persons"
-								value={persons}
-								onClick={(event) => {
-									setPersons(persons + 1);
-									handleChange(event);
-								}}
+								value={+state.persons + 1}
+								onClick={handleChange}
 							>
 								+
 							</button>
@@ -413,7 +390,7 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 							<label htmlFor="call">Потребуется звонок оператора</label>
 						</div>
 					</div>
-				</div>
+				</OrderComponent>
 
 				<div className={styles.form__container}>
 					<div className={`${styles.form__content} ${styles.form__agreement}`}>
@@ -439,13 +416,6 @@ export function Order({ styleContainer, styleBack, styleTitle }) {
 						>
 							Оформить заказ
 						</button>
-						{/* <button
-							className={styles.executeButton}
-							type="submit"
-							disabled={!isAgree}
-						>
-							Оформить заказ
-						</button> */}
 					</div>
 				</div>
 

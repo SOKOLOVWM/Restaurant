@@ -7,7 +7,7 @@ export function Main() {
 			<Roater
 				styleContainer={styles.styleContainer}
 				styleBack={styles.styleBack}
-				styleTitle={styles.styleTitle}
+				// styleTitle={styles.styleTitle}
 			/>
 		</main>
 	);

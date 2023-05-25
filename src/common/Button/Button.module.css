@@ -1,0 +1,17 @@
+@import url(./../../styles/fonts.css);
+
+.button {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 10px;
+	background-image: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
+	color: #fff;
+	display: flex;
+	align-items: center;
+	column-gap: 12px;
+	cursor: pointer;
+}
+
+.button:active {
+	box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.8);
+}
