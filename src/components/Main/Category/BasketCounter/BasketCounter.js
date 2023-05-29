@@ -29,7 +29,7 @@ export function BasketCounter({
 
 	const handleCountSub = ({ currentTarget }) => {
 		if (cartCount === 1) setIsShowCount(!isShowCount);
-
+		setCartTotalCount(cartTotalCount - 1);
 		dispatch({
 			type: DECREASE_PRICE,
 			id: currentTarget.id,
