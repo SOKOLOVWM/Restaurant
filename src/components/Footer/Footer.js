@@ -1,5 +1,5 @@
 import styles from "./Footer.module.css";
-import { ArrowTop } from "../../common/ArrowTop/ArrowTop";
+import { Arrow } from "../../common/Arrow/Arrow";
 import { Logo } from "../../common/Logo/Logo";
 import { NavigationFooter } from "./NavigationFooter/NavigationFooter";
 import { Forecast } from "../../common/Forecast/Forecast";
@@ -7,7 +7,7 @@ import { Forecast } from "../../common/Forecast/Forecast";
 export function Footer({ isShowMenu, setIsShowMenu, forecast }) {
 	return (
 		<footer className={styles.footer}>
-			<ArrowTop />
+			<Arrow />
 			<div className={styles.container}>
 				<Logo />
 				<span>&copy; ООО СК «АПШЕРОН» Все права защищены. 2010-2020</span>

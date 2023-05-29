@@ -1,5 +1,5 @@
 import styles from "./Main.module.css";
-import { Roater } from "../Routes/Router";
+import { Roater } from "../../Routes/Router";
 
 export function Main() {
 	return (

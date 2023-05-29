@@ -6,6 +6,7 @@ import { useValidate } from "../../validation/useValidate";
 import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Title } from "../../common/Title/Title";
 import { OrderComponent } from "./OrderComponent/OrderComponent";
+import { constants } from "../../constants/constants";
 
 const initialState = {
 	name: "",
@@ -70,7 +71,7 @@ export function Order() {
 
 	return (
 		<MainContainer addStyles={styles.order}>
-			<Title title="Оформление заказа" />
+			<Title title={constants.common.place_order} />
 
 			<form className={styles.form} onSubmit={handleOrder}>
 				<OrderComponent title="1. Контактная информация">

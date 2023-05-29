@@ -2,11 +2,14 @@ import styles from "./App.module.css";
 import { Header } from "../Header/Header";
 import { Main } from "../Main/Main";
 import { Footer } from "../Footer/Footer";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
+
+export const CartContext = createContext();
 
 export function App() {
 	const [forecast, setForecast] = useState({});
 	const [isShowMenu, setIsShowMenu] = useState(false);
+	const [cartTotalCount, setCartTotalCount] = useState(0);
 
 	useEffect(() => {
 		fetch(
@@ -27,14 +30,16 @@ export function App() {
 	}, []);
 
 	return (
-		<div className={styles.container}>
-			<Header isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
-			<Main />
-			<Footer
-				isShowMenu={isShowMenu}
-				setIsShowMenu={setIsShowMenu}
-				forecast={forecast}
-			/>
-		</div>
+		<CartContext.Provider value={{ cartTotalCount, setCartTotalCount }}>
+			<div className={styles.container}>
+				<Header isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
+				<Main />
+				<Footer
+					isShowMenu={isShowMenu}
+					setIsShowMenu={setIsShowMenu}
+					forecast={forecast}
+				/>
+			</div>
+		</CartContext.Provider>
 	);
 }

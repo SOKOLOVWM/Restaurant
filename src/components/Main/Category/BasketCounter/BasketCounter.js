@@ -1,9 +1,10 @@
 import styles from "./BasketCounter.module.css";
 import cart from "./../../../../assets/images/icon_cart.svg";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { INCREASE_PRICE } from "../../../../reducer/types";
 import { DECREASE_PRICE } from "../../../../reducer/types";
 import { Button } from "../../../../common/Button/Button";
+import { CartContext } from "../../../App/App";
 
 export function BasketCounter({
 	productPrice,
@@ -12,35 +13,38 @@ export function BasketCounter({
 	dispatch,
 	category,
 	id,
+	addStyles,
 }) {
-	const [isShowCount, setIsShowCount] = useState(false);
+	const [isShowCount, setIsShowCount] = useState(!!cartCount);
+	const { cartTotalCount, setCartTotalCount } = useContext(CartContext);
 
 	const handleCountAdd = ({ currentTarget }) => {
+		setCartTotalCount(cartTotalCount + 1);
 		dispatch({
 			type: INCREASE_PRICE,
 			id: currentTarget.id,
 			category: category,
 		});
-
-		console.log(currentTarget.id);
-	}; //currentTarget это объект на который повешен данный обработчик (кнопки + и -)
-
-	const handleCountSub = ({ currentTarget }) => {
-		if (cartCount === 1) {
-			setIsShowCount(!isShowCount);
-		} else {
-			dispatch({
-				type: DECREASE_PRICE,
-				id: currentTarget.id,
-				category: category,
-			});
-		}
-
-		console.log(currentTarget.id);
 	};
 
-	function handleCartClick() {
+	const handleCountSub = ({ currentTarget }) => {
+		if (cartCount === 1) setIsShowCount(!isShowCount);
+
+		dispatch({
+			type: DECREASE_PRICE,
+			id: currentTarget.id,
+			category: category,
+		});
+	};
+
+	function handleCartClick({ currentTarget }) {
+		setCartTotalCount(cartTotalCount + 1);
 		setIsShowCount(!isShowCount);
+		dispatch({
+			type: INCREASE_PRICE,
+			id: currentTarget.id,
+			category: category,
+		});
 	}
 
 	if (isShowCount) {
@@ -72,7 +76,13 @@ export function BasketCounter({
 				{productPrice.toLocaleString()} &#x20bd;
 			</span>
 
-			<Button title="В корзину" image={cart} handleClick={handleCartClick} />
+			<Button
+				addStyles={addStyles}
+				title="В корзину"
+				image={cart}
+				id={id}
+				handleClick={handleCartClick}
+			/>
 		</>
 	);
 }

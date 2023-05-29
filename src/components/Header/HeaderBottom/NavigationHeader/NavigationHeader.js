@@ -1,13 +1,13 @@
 import styles from "./NavigationHeader.module.css";
 import { NavLink, useLocation } from "react-router-dom";
-import { menu } from "../../../../data/menu";
+import { initialState } from "../../../../reducer/initialState";
 
 export function NavigationHeader() {
 	const { pathname } = useLocation();
 
 	return (
 		<nav className={styles.navigation}>
-			{menu.map((dish) => (
+			{initialState.map((dish) => (
 				<NavLink
 					key={dish.id}
 					to={dish.url}

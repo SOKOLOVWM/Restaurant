@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { BasketCounter } from "./BasketCounter/BasketCounter";
 import { useReducer } from "react";
 import { productReducer } from "../../../reducer/productReducer";
@@ -19,7 +19,9 @@ export function Category() {
 		return url === undefined
 			? category.url === "cold-snack"
 			: category.url === url;
-	}); //ищу нужную категорию в state по url и достаю из нее title, products, url
+	});
+
+	// console.log(state);
 
 	return (
 		<MainContainer backward={false} addStyles={styles.category} key={url}>
@@ -28,11 +30,13 @@ export function Category() {
 			<div className={styles.products}>
 				{products.map((product) => (
 					<div key={product.id} className={styles.product}>
-						<img
-							className={styles.product__image}
-							src={product.images.src}
-							alt={product.images.alt}
-						></img>
+						<Link to={String(product.id)} state={true}>
+							<img
+								className={styles.product__image}
+								src={product.images.src}
+								alt={product.images.alt}
+							></img>
+						</Link>
 						<div className={styles.product__container}>
 							<div className={styles.title_box}>
 								<h3 className={styles.product__title}>{product.title}</h3>

@@ -1,6 +1,6 @@
-import styles from "./ArrowTop.module.css";
+import styles from "./Arrow.module.css";
 
-export function ArrowTop() {
+export function Arrow() {
 	const scrollUp = () => {
 		window.scrollTo({
 			top: 0,
@@ -10,8 +10,8 @@ export function ArrowTop() {
 	};
 
 	return (
-		<a className={styles.container} onClick={scrollUp}>
+		<div className={styles.container} onClick={scrollUp}>
 			<div className={styles.arrow}></div>
-		</a>
+		</div>
 	);
 }
