@@ -1,10 +1,12 @@
 import styles from "./BasketCounter.module.css";
 import cart from "./../../../../assets/images/icon_cart.svg";
+import bag from "./../../../../assets/images/icon_bag.svg";
 import { useState, useContext } from "react";
 import { INCREASE_PRICE } from "../../../../reducer/types";
 import { DECREASE_PRICE } from "../../../../reducer/types";
 import { Button } from "../../../../common/Button/Button";
-import { CartContext } from "../../../App/App";
+import { AppContext } from "../../../App/App";
+import { useParams } from "react-router-dom";
 
 export function BasketCounter({
 	productPrice,
@@ -16,7 +18,8 @@ export function BasketCounter({
 	addStyles,
 }) {
 	const [isShowCount, setIsShowCount] = useState(!!cartCount);
-	const { cartTotalCount, setCartTotalCount } = useContext(CartContext);
+	const { cartTotalCount, setCartTotalCount } = useContext(AppContext);
+	const { id: urlId } = useParams();
 
 	const handleCountAdd = ({ currentTarget }) => {
 		setCartTotalCount(cartTotalCount + 1);
@@ -78,8 +81,8 @@ export function BasketCounter({
 
 			<Button
 				addStyles={addStyles}
-				title="В корзину"
-				image={cart}
+				title={urlId ? "Корзина" : "В корзину"}
+				image={urlId ? bag : cart}
 				id={id}
 				handleClick={handleCartClick}
 			/>

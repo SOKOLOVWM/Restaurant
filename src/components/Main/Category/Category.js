@@ -1,14 +1,14 @@
 import { useParams, Link } from "react-router-dom";
 import { BasketCounter } from "./BasketCounter/BasketCounter";
-import { useReducer } from "react";
-import { productReducer } from "../../../reducer/productReducer";
-import { initialState } from "../../../reducer/initialState";
+import { useContext } from "react";
 import { MainContainer } from "../../../common/MainContainer/MainContainer";
 import { Title } from "../../../common/Title/Title";
 import styles from "./Category.module.css";
+import { AppContext } from "../../App/App";
 
 export function Category() {
-	const [state, dispatch] = useReducer(productReducer, initialState);
+	const { state, dispatch } = useContext(AppContext);
+
 	const { url } = useParams();
 
 	const {
@@ -21,8 +21,6 @@ export function Category() {
 			: category.url === url;
 	});
 
-	// console.log(state);
-
 	return (
 		<MainContainer backward={false} addStyles={styles.category} key={url}>
 			<Title title={title} />
@@ -30,7 +28,7 @@ export function Category() {
 			<div className={styles.products}>
 				{products.map((product) => (
 					<div key={product.id} className={styles.product}>
-						<Link to={String(product.id)} state={true}>
+						<Link to={`/${categoryUrl}/${product.id}`} state={true}>
 							<img
 								className={styles.product__image}
 								src={product.images.src}

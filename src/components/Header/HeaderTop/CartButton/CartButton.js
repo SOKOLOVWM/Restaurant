@@ -3,10 +3,10 @@ import cart from "./../../../../assets/images/icon_cart.svg";
 import { Link } from "react-router-dom";
 import { constants } from "../../../../constants/constants";
 import { useContext } from "react";
-import { CartContext } from "../../../App/App";
+import { AppContext } from "../../../App/App";
 
 export function CartButton() {
-	const { cartTotalCount } = useContext(CartContext);
+	const { cartTotalCount } = useContext(AppContext);
 
 	return (
 		<Link to="/cart" state="true" className={styles.cartButton}>

@@ -2,14 +2,17 @@ import styles from "./App.module.css";
 import { Header } from "../Header/Header";
 import { Main } from "../Main/Main";
 import { Footer } from "../Footer/Footer";
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect, useReducer, createContext } from "react";
+import { productReducer } from "../../reducer/productReducer";
+import { initialState } from "../../reducer/initialState";
 
-export const CartContext = createContext();
+export const AppContext = createContext();
 
 export function App() {
 	const [forecast, setForecast] = useState({});
 	const [isShowMenu, setIsShowMenu] = useState(false);
 	const [cartTotalCount, setCartTotalCount] = useState(0);
+	const [state, dispatch] = useReducer(productReducer, initialState);
 
 	useEffect(() => {
 		fetch(
@@ -30,7 +33,9 @@ export function App() {
 	}, []);
 
 	return (
-		<CartContext.Provider value={{ cartTotalCount, setCartTotalCount }}>
+		<AppContext.Provider
+			value={{ cartTotalCount, setCartTotalCount, state, dispatch }}
+		>
 			<div className={styles.container}>
 				<Header isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
 				<Main />
@@ -40,6 +45,6 @@ export function App() {
 					forecast={forecast}
 				/>
 			</div>
-		</CartContext.Provider>
+		</AppContext.Provider>
 	);
 }

@@ -1,28 +1,24 @@
 import { MainContainer } from "../../common/MainContainer/MainContainer";
-import styles from "./Product.module.css";
-import { initialState } from "../../reducer/initialState";
-import { productReducer } from "../../reducer/productReducer";
-import { useReducer } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { BasketCounter } from "../../components/Main/Category/BasketCounter/BasketCounter";
 import { constants } from "../../constants/constants";
+import styles from "./Product.module.css";
+import { AppContext } from "../../components/App/App";
 
 export function Product() {
-	const [state, dispatch] = useReducer(productReducer, initialState);
-	const { url } = useParams();
-	const { pathname } = useLocation();
+	const { state, dispatch } = useContext(AppContext);
+	const { url, id } = useParams();
 	const navigate = useNavigate();
 
 	const goBack = () => {
 		navigate(-1);
 	};
 
-	const productId = pathname.slice(pathname.lastIndexOf("/") + 1);
-
 	const { products, url: categoryUrl } = state.find(
 		(category) => category.url === url
 	);
-	const product = products.find((product) => product.id === +productId);
+	const product = products.find((product) => product.id === +id);
 
 	return (
 		<MainContainer backward={false} addStyles={styles.product} key={url}>
