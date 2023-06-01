@@ -2,9 +2,9 @@ import styles from "./App.module.css";
 import { Header } from "../Header/Header";
 import { Main } from "../Main/Main";
 import { Footer } from "../Footer/Footer";
-import { useState, useEffect, useReducer, createContext } from "react";
 import { productReducer } from "../../reducer/productReducer";
 import { initialState } from "../../reducer/initialState";
+import { useState, useEffect, useReducer, createContext } from "react";
 
 export const AppContext = createContext();
 
@@ -34,7 +34,12 @@ export function App() {
 
 	return (
 		<AppContext.Provider
-			value={{ cartTotalCount, setCartTotalCount, state, dispatch }}
+			value={{
+				cartTotalCount,
+				setCartTotalCount,
+				state,
+				dispatch,
+			}}
 		>
 			<div className={styles.container}>
 				<Header isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />

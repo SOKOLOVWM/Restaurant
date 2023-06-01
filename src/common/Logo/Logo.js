@@ -5,7 +5,7 @@ import logo from "./../../assets/images/logo.svg";
 export function Logo() {
 	return (
 		<Link className={styles.logo} to="/">
-			<img src={logo}></img>
+			<img src={logo} alt="logo"></img>
 		</Link>
 	);
 }

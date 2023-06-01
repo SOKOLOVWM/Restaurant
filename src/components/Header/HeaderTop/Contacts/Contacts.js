@@ -5,7 +5,7 @@ export function Contacts() {
 	return (
 		<div className={styles.container}>
 			<div className={styles.calling}>
-				<img src={calling}></img>
+				<img src={calling} alt="calling"></img>
 			</div>
 			<div className={styles.contacts}>
 				<span>Контакты:</span>

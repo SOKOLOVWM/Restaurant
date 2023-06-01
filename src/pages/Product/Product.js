@@ -1,7 +1,8 @@
 import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { BasketCounter } from "../../components/Main/Category/BasketCounter/BasketCounter";
+import { Back } from "../../common/Back/Back";
 import { constants } from "../../constants/constants";
 import styles from "./Product.module.css";
 import { AppContext } from "../../components/App/App";
@@ -9,11 +10,6 @@ import { AppContext } from "../../components/App/App";
 export function Product() {
 	const { state, dispatch } = useContext(AppContext);
 	const { url, id } = useParams();
-	const navigate = useNavigate();
-
-	const goBack = () => {
-		navigate(-1);
-	};
 
 	const { products, url: categoryUrl } = state.find(
 		(category) => category.url === url
@@ -22,12 +18,7 @@ export function Product() {
 
 	return (
 		<MainContainer backward={false} addStyles={styles.product} key={url}>
-			<div className={styles.goBack} onClick={goBack}>
-				<div className={styles.arrowBox}>
-					<div className={styles.arrow}></div>
-				</div>
-				<span className={styles.goBackTitle}>Вернуться назад</span>
-			</div>
+			<Back />
 
 			<div className={styles.container}>
 				<img

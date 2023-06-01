@@ -44,5 +44,7 @@ export function productReducer(state, action) {
 			});
 			return newState;
 		}
+		default:
+			return { ...state };
 	}
 }

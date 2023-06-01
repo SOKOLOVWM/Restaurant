@@ -29,9 +29,15 @@
 	}
 }
 
-@media (max-width: 518px) {
+@media (max-width: 598px) {
 	.content {
 		justify-content: space-between;
 		column-gap: 20px;
+	}
+}
+
+@media (max-width: 414px) {
+	.content {
+		column-gap: 10px;
 	}
 }

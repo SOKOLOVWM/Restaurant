@@ -5,7 +5,7 @@ import magnifier from "./../../../../assets/images/icon_magnifier.svg";
 export function Delivery() {
 	return (
 		<div className={styles.delivery}>
-			<img className={styles.location} src={location}></img>
+			<img className={styles.location} src={location} alt="location"></img>
 
 			<input
 				className={styles.address}
@@ -14,7 +14,7 @@ export function Delivery() {
 			></input>
 
 			<button className={styles.button} type="submit">
-				<img src={magnifier}></img>
+				<img src={magnifier} alt="magnifier"></img>
 			</button>
 		</div>
 	);

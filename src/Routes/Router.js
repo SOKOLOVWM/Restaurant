@@ -7,6 +7,7 @@ import { Refund } from "../pages/Refund/Refund";
 import { Sale } from "../pages/Sale/Sale";
 import { Order } from "../pages/Order/Order";
 import { Product } from "../pages/Product/Product";
+import { Profile } from "../pages/Profile/Profile";
 import { constants } from "../constants/constants";
 
 export function Roater() {
@@ -21,6 +22,7 @@ export function Roater() {
 			<Route path={constants.routs.refund} element={<Refund />} />
 			<Route path={constants.routs.sale} element={<Sale />} />
 			<Route path={constants.routs.order} element={<Order />} />
+			<Route path="/profile" element={<Profile />} />
 		</Routes>
 	);
 }

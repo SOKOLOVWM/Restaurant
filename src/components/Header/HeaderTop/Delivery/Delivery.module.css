@@ -34,14 +34,16 @@
 	cursor: pointer;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1380px) {
 	.delivery {
-		width: 424px;
+		width: auto;
 	}
 }
 
 @media (max-width: 882px) {
 	.delivery {
+		width: 100%;
+		max-width: 505px;
 		order: 1;
 	}
 }
