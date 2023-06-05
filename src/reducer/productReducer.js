@@ -1,4 +1,4 @@
-import { INCREASE_PRICE, DECREASE_PRICE } from "./types";
+import { INCREASE_PRICE, DECREASE_PRICE, DELETE_PRODUCT } from "./types";
 
 export function productReducer(state, action) {
 	switch (action.type) {
@@ -34,6 +34,27 @@ export function productReducer(state, action) {
 								...element,
 								cartPrice: element.cartPrice - element.price,
 								cartCount: element.cartCount - 1,
+							};
+						}
+						return element;
+					});
+					return { ...item, products: products };
+				}
+				return item;
+			});
+			return newState;
+		}
+		case DELETE_PRODUCT: {
+			const { id, category } = action;
+
+			const newState = state.map((item) => {
+				if (item.url === category) {
+					const products = item.products.map((element) => {
+						if (element.id === +id) {
+							return {
+								...element,
+								cartPrice: 0,
+								cartCount: 0,
 							};
 						}
 						return element;

@@ -1,4 +1,3 @@
-import styles from "./BasketCounter.module.css";
 import cart from "./../../../../assets/images/icon_cart.svg";
 import bag from "./../../../../assets/images/icon_bag.svg";
 import { useState, useContext } from "react";
@@ -7,16 +6,10 @@ import { DECREASE_PRICE } from "../../../../reducer/types";
 import { Button } from "../../../../common/Button/Button";
 import { AppContext } from "../../../App/App";
 import { useParams } from "react-router-dom";
+import styles from "./BasketCounter.module.css";
 
-export function BasketCounter({
-	productPrice,
-	cartPrice,
-	cartCount,
-	dispatch,
-	category,
-	id,
-	addStyles,
-}) {
+export function BasketCounter({ product, dispatch, category, addStyles }) {
+	const { price: productPrice, cartPrice, cartCount, id } = product;
 	const [isShowCount, setIsShowCount] = useState(!!cartCount);
 	const { cartTotalCount, setCartTotalCount } = useContext(AppContext);
 	const { id: urlId } = useParams();
@@ -41,8 +34,8 @@ export function BasketCounter({
 	};
 
 	function handleCartClick({ currentTarget }) {
-		setCartTotalCount(cartTotalCount + 1);
 		setIsShowCount(!isShowCount);
+		setCartTotalCount(cartTotalCount + 1);
 		dispatch({
 			type: INCREASE_PRICE,
 			id: currentTarget.id,
@@ -52,29 +45,50 @@ export function BasketCounter({
 
 	if (isShowCount) {
 		return (
-			<>
-				<span className={styles.counter}>{cartCount}</span>
+			<div
+				className={
+					addStyles
+						? `${styles.container} ${addStyles.addStylesContainer}`
+						: styles.container
+				}
+			>
 				<Button
 					title="-"
 					id={id}
 					handleClick={handleCountSub}
-					addStyles={styles.buttonCountChange}
+					addStyles={addStyles}
 				/>
-				<span className={styles.price}>
+				<span
+					className={
+						addStyles
+							? `${styles.counter} ${addStyles.addStylesCounter}`
+							: styles.counter
+					}
+				>
+					{cartCount}
+				</span>
+				<span
+					className={
+						addStyles
+							? `${styles.price} ${addStyles.addStylesPrice}`
+							: styles.price
+					}
+				>
 					{cartPrice.toLocaleString()} &#x20bd;
 				</span>
 				<Button
 					title="+"
 					id={id}
 					handleClick={handleCountAdd}
-					addStyles={styles.buttonCountChange}
+					addStyles={addStyles}
+					// addStyles={styles.buttonCountChange}
 				/>
-			</>
+			</div>
 		);
 	}
 
 	return (
-		<>
+		<div className={styles.container}>
 			<span className={styles.price}>
 				{productPrice.toLocaleString()} &#x20bd;
 			</span>
@@ -86,6 +100,6 @@ export function BasketCounter({
 				id={id}
 				handleClick={handleCartClick}
 			/>
-		</>
+		</div>
 	);
 }

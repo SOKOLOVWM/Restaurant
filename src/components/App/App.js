@@ -35,10 +35,10 @@ export function App() {
 	return (
 		<AppContext.Provider
 			value={{
-				cartTotalCount,
-				setCartTotalCount,
 				state,
 				dispatch,
+				cartTotalCount,
+				setCartTotalCount,
 			}}
 		>
 			<div className={styles.container}>

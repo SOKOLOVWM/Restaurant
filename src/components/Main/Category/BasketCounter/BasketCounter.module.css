@@ -1,5 +1,12 @@
 @import url(./../../../../styles/fonts.css);
 
+.container {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+	align-items: center;
+}
+
 .counter {
 	width: 50px;
 	height: 50px;
@@ -13,16 +20,6 @@
 	position: absolute;
 	top: -10px;
 	right: -10px;
-}
-
-.buttonCountChange {
-	height: 40px;
-	font-size: 1.6em;
-}
-
-.buttonCountChange:active {
-	background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
-	box-shadow: 0px 5px 10px rgba(114, 163, 121, 0.7);
 }
 
 .price {

@@ -77,7 +77,7 @@ export const initialState = [
 		title: "Горячие закуски",
 		products: [
 			{
-				id: 1,
+				id: 4,
 				title: "Ягненок (hot)",
 				description:
 					"Фаршированный гречневой кашей, курагой, апельсином и зеленым яблоком",
@@ -98,7 +98,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 2,
+				id: 5,
 				title: "Щука (hot)",
 				description: "Фаршированная яблоками",
 				weight: 225,
@@ -118,7 +118,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 3,
+				id: 6,
 				title: "Утка (hot)",
 				description: "Фаршированная рисом, курагой и айвой",
 				weight: 280,
@@ -145,7 +145,7 @@ export const initialState = [
 		title: "Мясные блюда",
 		products: [
 			{
-				id: 1,
+				id: 7,
 				title: "Ягненок (meat)",
 				description:
 					"Фаршированный гречневой кашей, курагой, апельсином и зеленым яблоком",
@@ -166,7 +166,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 2,
+				id: 8,
 				title: "Щука (meat)",
 				description: "Фаршированная яблоками",
 				weight: 225,
@@ -186,7 +186,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 3,
+				id: 9,
 				title: "Утка (meat)",
 				description: "Фаршированная рисом, курагой и айвой",
 				weight: 280,
@@ -213,7 +213,7 @@ export const initialState = [
 		title: "Супы",
 		products: [
 			{
-				id: 1,
+				id: 10,
 				title: "Ягненок (soup)",
 				description:
 					"Фаршированный гречневой кашей, курагой, апельсином и зеленым яблоком",
@@ -234,7 +234,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 2,
+				id: 11,
 				title: "Щука (soup)",
 				description: "Фаршированная яблоками",
 				weight: 225,
@@ -254,7 +254,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 3,
+				id: 12,
 				title: "Утка (soup)",
 				description: "Фаршированная рисом, курагой и айвой",
 				weight: 280,
@@ -281,7 +281,7 @@ export const initialState = [
 		title: "Рыбные блюда",
 		products: [
 			{
-				id: 1,
+				id: 13,
 				title: "Ягненок (fish)",
 				description:
 					"Фаршированный гречневой кашей, курагой, апельсином и зеленым яблоком",
@@ -302,7 +302,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 2,
+				id: 14,
 				title: "Щука (fish)",
 				description: "Фаршированная яблоками",
 				weight: 225,
@@ -322,7 +322,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 3,
+				id: 15,
 				title: "Утка (fish)",
 				description: "Фаршированная рисом, курагой и айвой",
 				weight: 280,
@@ -349,7 +349,7 @@ export const initialState = [
 		title: "Гриль меню",
 		products: [
 			{
-				id: 1,
+				id: 16,
 				title: "Ягненок (grill)",
 				description:
 					"Фаршированный гречневой кашей, курагой, апельсином и зеленым яблоком",
@@ -370,7 +370,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 2,
+				id: 17,
 				title: "Щука (grill)",
 				description: "Фаршированная яблоками",
 				weight: 225,
@@ -390,7 +390,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 3,
+				id: 18,
 				title: "Утка (grill)",
 				description: "Фаршированная рисом, курагой и айвой",
 				weight: 280,
@@ -417,7 +417,7 @@ export const initialState = [
 		title: "Фирменные блюда",
 		products: [
 			{
-				id: 1,
+				id: 19,
 				title: "Ягненок (specials)",
 				description:
 					"Фаршированный гречневой кашей, курагой, апельсином и зеленым яблоком",
@@ -438,7 +438,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 2,
+				id: 20,
 				title: "Щука (specials)",
 				description: "Фаршированная яблоками",
 				weight: 225,
@@ -458,7 +458,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 3,
+				id: 21,
 				title: "Утка (specials)",
 				description: "Фаршированная рисом, курагой и айвой",
 				weight: 280,
@@ -485,7 +485,7 @@ export const initialState = [
 		title: "Напитки",
 		products: [
 			{
-				id: 1,
+				id: 22,
 				title: "Ягненок (drinks)",
 				description:
 					"Фаршированный гречневой кашей, курагой, апельсином и зеленым яблоком",
@@ -506,7 +506,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 2,
+				id: 23,
 				title: "Щука (drinks)",
 				description: "Фаршированная яблоками",
 				weight: 225,
@@ -526,7 +526,7 @@ export const initialState = [
 				},
 			},
 			{
-				id: 3,
+				id: 24,
 				title: "Утка (drinks)",
 				description: "Фаршированная рисом, курагой и айвой",
 				weight: 280,

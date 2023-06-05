@@ -5,7 +5,13 @@ export function Button({ title, image, id, handleClick, addStyles }) {
 		<button
 			id={id}
 			onClick={handleClick}
-			className={`${styles.button} ${addStyles}`}
+			className={
+				image
+					? styles.button
+					: addStyles
+					? `${styles.button} ${styles.buttonCountChange} ${addStyles.addStylesButton}`
+					: `${styles.button} ${styles.buttonCountChange} `
+			}
 		>
 			{title}
 			{image && <img src={image} alt="pictire"></img>}

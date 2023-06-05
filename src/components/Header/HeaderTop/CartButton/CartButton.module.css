@@ -45,7 +45,7 @@
 	color: #403c3b;
 }
 
-@media (max-width: 518px) {
+@media (max-width: 480px) {
 	.cartButton {
 		width: 62px;
 		height: 52px;

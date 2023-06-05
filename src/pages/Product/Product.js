@@ -35,11 +35,8 @@ export function Product() {
 						<span className={styles.weight}>Вес: {product.weight} г</span>
 						<div className={styles.cartBox}>
 							<BasketCounter
-								productPrice={product.price}
-								cartPrice={product.cartPrice}
-								cartCount={product.cartCount}
+								product={product}
 								dispatch={dispatch}
-								id={product.id}
 								category={categoryUrl}
 								addStyles={styles.cartButton}
 							/>

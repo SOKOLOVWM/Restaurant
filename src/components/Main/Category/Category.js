@@ -47,11 +47,8 @@ export function Category() {
 							</p>
 							<div className={styles.cart_box}>
 								<BasketCounter
-									productPrice={product.price}
-									cartPrice={product.cartPrice}
-									cartCount={product.cartCount}
+									product={product}
 									dispatch={dispatch}
-									id={product.id}
 									category={categoryUrl}
 								/>
 							</div>

@@ -1,8 +1,10 @@
 @import url(./../../styles/fonts.css);
 
 .container {
+	height: 400px;
 	display: flex;
 	flex-direction: column;
+	flex: 2;
 	row-gap: 50px;
 }
 
