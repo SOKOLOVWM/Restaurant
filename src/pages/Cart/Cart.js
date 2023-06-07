@@ -1,17 +1,17 @@
-import styles from "./Cart.module.css";
-import { AppContext } from "../../components/App/App";
-import { constants } from "../../constants/constants";
-import { MainContainer } from "../../common/MainContainer/MainContainer";
-import { Title } from "../../common/Title/Title";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { BasketCounter } from "../../components/Main/Category/BasketCounter/BasketCounter";
-import { DELETE_PRODUCT } from "../../reducer/types";
+import styles from "./Cart.module.css";
+import { AppContext } from "../../App";
+import { constants } from "../../constants/constants";
+import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Button } from "../../common/Button/Button";
+import { Title } from "../../common/Title/Title";
+import { BasketCounterContainer } from "../../common/BasketCounter/BasketCounterContainer";
+import { DELETE_PRODUCT } from "../../reducer/types";
 
 export function Cart() {
-	const { state, dispatch } = useContext(AppContext);
 	const { cartTotalCount, setCartTotalCount } = useContext(AppContext);
+	const { state, dispatch } = useContext(AppContext);
 	const [basket, setBasket] = useState([]);
 
 	useEffect(() => {
@@ -40,16 +40,17 @@ export function Cart() {
 		});
 	};
 
+	const totalPrice = () => {
+		return basket.reduce((sum, product) => sum + product.cartPrice, 0);
+	};
+
 	return (
 		<MainContainer addStyles={styles.cart}>
 			<Title title={constants.common.cart} />
 			<div className={styles.container}>
 				<div className={styles.order}>
 					{basket.map((product) => (
-						<div
-							className={`${styles.product} ${styles.productAddStyles}`}
-							key={product.id}
-						>
+						<div className={styles.product} key={product.id}>
 							<div className={styles.productAbout}>
 								<Link to={`/${product.url}/${product.id}`} state={true}>
 									<img src={product.images.src} alt={product.images.alt}></img>
@@ -60,7 +61,7 @@ export function Cart() {
 								</div>
 							</div>
 							<div className={styles.productDetails}>
-								<BasketCounter
+								<BasketCounterContainer
 									product={product}
 									dispatch={dispatch}
 									category={product.url}
@@ -71,7 +72,7 @@ export function Cart() {
 									handleClick={() =>
 										removeProduct(product.id, product.url, product.cartCount)
 									}
-									addStyles={styles}
+									addStyles={styles.addStylesButton}
 								/>
 							</div>
 						</div>
@@ -82,12 +83,7 @@ export function Cart() {
 					<div className={styles.totalBox}>
 						<span className={styles.totalTitle}>Итого: </span>
 						<span className={styles.totalPrice}>
-							{basket
-								.reduce((sum, product) => {
-									return sum + product.cartPrice;
-								}, 0)
-								.toLocaleString()}{" "}
-							&#x20bd;
+							{totalPrice().toLocaleString()} &#x20bd;
 						</span>
 					</div>
 					<Link

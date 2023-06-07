@@ -1,11 +1,11 @@
-import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { BasketCounter } from "../../components/Main/Category/BasketCounter/BasketCounter";
-import { Back } from "../../common/Back/Back";
-import { constants } from "../../constants/constants";
 import styles from "./Product.module.css";
-import { AppContext } from "../../components/App/App";
+import { constants } from "../../constants/constants";
+import { AppContext } from "../../App";
+import { Back } from "../../common/Back/Back";
+import { BasketCounterContainer } from "../../common/BasketCounter/BasketCounterContainer";
+import { MainContainer } from "../../common/MainContainer/MainContainer";
 
 export function Product() {
 	const { state, dispatch } = useContext(AppContext);
@@ -34,7 +34,7 @@ export function Product() {
 					<div className={styles.mainBox}>
 						<span className={styles.weight}>Вес: {product.weight} г</span>
 						<div className={styles.cartBox}>
-							<BasketCounter
+							<BasketCounterContainer
 								product={product}
 								dispatch={dispatch}
 								category={categoryUrl}

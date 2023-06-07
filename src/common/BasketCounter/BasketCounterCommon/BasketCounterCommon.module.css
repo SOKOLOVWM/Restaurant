@@ -1,4 +1,4 @@
-@import url(./../../../../styles/fonts.css);
+@import url(./../../../styles/fonts.css);
 
 .container {
 	display: flex;
@@ -27,4 +27,14 @@
 	font-size: 20px;
 	line-height: 24px;
 	color: #fff;
+}
+
+.addStylesButton {
+	height: 40px;
+	font-size: 1.6em;
+}
+
+.addStylesButton:active {
+	background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
+	box-shadow: 0px 5px 10px rgba(114, 163, 121, 0.7);
 }

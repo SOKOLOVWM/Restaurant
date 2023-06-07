@@ -3,7 +3,7 @@ import cart from "./../../../../assets/images/icon_cart.svg";
 import { Link } from "react-router-dom";
 import { constants } from "../../../../constants/constants";
 import { useContext } from "react";
-import { AppContext } from "../../../App/App";
+import { AppContext } from "../../../../App";
 
 export function CartButton() {
 	const { cartTotalCount } = useContext(AppContext);

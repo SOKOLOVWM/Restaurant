@@ -1,14 +1,13 @@
-import { useParams, Link } from "react-router-dom";
-import { BasketCounter } from "./BasketCounter/BasketCounter";
 import { useContext } from "react";
+import { useParams, Link } from "react-router-dom";
+import styles from "./Category.module.css";
+import { AppContext } from "../../../App";
+import { BasketCounterContainer } from "../../../common/BasketCounter/BasketCounterContainer";
 import { MainContainer } from "../../../common/MainContainer/MainContainer";
 import { Title } from "../../../common/Title/Title";
-import styles from "./Category.module.css";
-import { AppContext } from "../../App/App";
 
 export function Category() {
 	const { state, dispatch } = useContext(AppContext);
-
 	const { url } = useParams();
 
 	const {
@@ -46,7 +45,7 @@ export function Category() {
 								{product.description}
 							</p>
 							<div className={styles.cart_box}>
-								<BasketCounter
+								<BasketCounterContainer
 									product={product}
 									dispatch={dispatch}
 									category={categoryUrl}

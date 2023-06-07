@@ -1,10 +1,10 @@
-import styles from "./App.module.css";
-import { Header } from "../Header/Header";
-import { Main } from "../Main/Main";
-import { Footer } from "../Footer/Footer";
-import { productReducer } from "../../reducer/productReducer";
-import { initialState } from "../../reducer/initialState";
 import { useState, useEffect, useReducer, createContext } from "react";
+import styles from "./App.module.css";
+import { Header } from "./components/Header/Header";
+import { Main } from "./components/Main/Main";
+import { Footer } from "./components/Footer/Footer";
+import { initialState } from "./reducer/initialState";
+import { productReducer } from "./reducer/productReducer";
 
 export const AppContext = createContext();
 
