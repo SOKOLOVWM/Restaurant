@@ -1,18 +1,12 @@
-import { useState, useEffect, useReducer, createContext } from "react";
+import { useState, useEffect } from "react";
 import styles from "./App.module.css";
 import { Header } from "./components/Header/Header";
 import { Main } from "./components/Main/Main";
 import { Footer } from "./components/Footer/Footer";
-import { initialState } from "./reducer/initialState";
-import { productReducer } from "./reducer/productReducer";
-
-export const AppContext = createContext();
 
 export function App() {
 	const [forecast, setForecast] = useState({});
 	const [isShowMenu, setIsShowMenu] = useState(false);
-	const [cartTotalCount, setCartTotalCount] = useState(0);
-	const [state, dispatch] = useReducer(productReducer, initialState);
 
 	useEffect(() => {
 		fetch(
@@ -33,23 +27,14 @@ export function App() {
 	}, []);
 
 	return (
-		<AppContext.Provider
-			value={{
-				state,
-				dispatch,
-				cartTotalCount,
-				setCartTotalCount,
-			}}
-		>
-			<div className={styles.container}>
-				<Header isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
-				<Main />
-				<Footer
-					isShowMenu={isShowMenu}
-					setIsShowMenu={setIsShowMenu}
-					forecast={forecast}
-				/>
-			</div>
-		</AppContext.Provider>
+		<div className={styles.container}>
+			<Header isShowMenu={isShowMenu} setIsShowMenu={setIsShowMenu} />
+			<Main />
+			<Footer
+				isShowMenu={isShowMenu}
+				setIsShowMenu={setIsShowMenu}
+				forecast={forecast}
+			/>
+		</div>
 	);
 }

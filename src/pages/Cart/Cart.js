@@ -1,17 +1,20 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Cart.module.css";
-import { AppContext } from "../../App";
 import { constants } from "../../constants/constants";
 import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Button } from "../../common/Button/Button";
 import { Title } from "../../common/Title/Title";
 import { BasketCounterContainer } from "../../common/BasketCounter/BasketCounterContainer";
-import { DELETE_PRODUCT } from "../../reducer/types";
+import { deleteProduct } from "../../reducer/productReducer";
+import { subCartCount } from "../../reducer/cartReducer";
 
 export function Cart() {
-	const { cartTotalCount, setCartTotalCount } = useContext(AppContext);
-	const { state, dispatch } = useContext(AppContext);
+	const state = useSelector(
+		(state) => state.productReducer.productInitialState
+	);
+	const dispatch = useDispatch();
 	const [basket, setBasket] = useState([]);
 
 	useEffect(() => {
@@ -32,12 +35,13 @@ export function Cart() {
 	const removeProduct = (id, url, cartCount) => {
 		const newBasket = basket.filter((product) => product.id !== id);
 		setBasket(newBasket);
-		setCartTotalCount(cartTotalCount - cartCount);
-		dispatch({
-			type: DELETE_PRODUCT,
-			id: id,
-			category: url,
-		});
+		dispatch(subCartCount(cartCount));
+		dispatch(
+			deleteProduct({
+				id: id,
+				category: url,
+			})
+		);
 	};
 
 	const totalPrice = () => {

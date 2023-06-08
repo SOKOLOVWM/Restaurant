@@ -1,13 +1,15 @@
-import { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Category.module.css";
-import { AppContext } from "../../../App";
 import { BasketCounterContainer } from "../../../common/BasketCounter/BasketCounterContainer";
 import { MainContainer } from "../../../common/MainContainer/MainContainer";
 import { Title } from "../../../common/Title/Title";
 
 export function Category() {
-	const { state, dispatch } = useContext(AppContext);
+	const state = useSelector(
+		(state) => state.productReducer.productInitialState
+	);
+	const dispatch = useDispatch();
 	const { url } = useParams();
 
 	const {

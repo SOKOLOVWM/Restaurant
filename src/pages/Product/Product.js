@@ -1,14 +1,16 @@
-import { useContext } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Product.module.css";
 import { constants } from "../../constants/constants";
-import { AppContext } from "../../App";
 import { Back } from "../../common/Back/Back";
 import { BasketCounterContainer } from "../../common/BasketCounter/BasketCounterContainer";
 import { MainContainer } from "../../common/MainContainer/MainContainer";
 
 export function Product() {
-	const { state, dispatch } = useContext(AppContext);
+	const state = useSelector(
+		(state) => state.productReducer.productInitialState
+	);
+	const dispatch = useDispatch();
 	const { url, id } = useParams();
 
 	const { products, url: categoryUrl } = state.find(
@@ -36,8 +38,8 @@ export function Product() {
 						<div className={styles.cartBox}>
 							<BasketCounterContainer
 								product={product}
-								dispatch={dispatch}
 								category={categoryUrl}
+								dispatch={dispatch}
 								addStyles={styles.cartButton}
 							/>
 						</div>

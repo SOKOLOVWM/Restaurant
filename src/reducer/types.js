@@ -1,3 +1,5 @@
 export const INCREASE_PRICE = "INCREASE_PRICE";
 export const DECREASE_PRICE = "DECREASE_PRICE";
 export const DELETE_PRODUCT = "DELETE_PRODUCT";
+export const ADD_CART_COUNT = "ADD_CART_COUNT";
+export const SUB_CART_COUNT = "SUB_CART_COUNT";

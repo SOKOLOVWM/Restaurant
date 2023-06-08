@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import styles from "./CartButton.module.css";
 import cart from "./../../../../assets/images/icon_cart.svg";
-import { Link } from "react-router-dom";
 import { constants } from "../../../../constants/constants";
-import { useContext } from "react";
-import { AppContext } from "../../../../App";
 
 export function CartButton() {
-	const { cartTotalCount } = useContext(AppContext);
+	const cartTotalCount = useSelector(
+		(state) => state.cartReducer.cartInitialState
+	);
 
 	return (
 		<Link to="/cart" state="true" className={styles.cartButton}>
