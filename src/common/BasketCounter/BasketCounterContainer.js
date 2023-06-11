@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { BasketCounterCommon } from "./BasketCounterCommon/BasketCounterCommon";
 import { BasketCounterCart } from "./BasketCounterCart/BasketCounterCart";
-import { addCartCount, subCartCount } from "../../reducer/cartReducer";
-import { increasePrice, decreasePrice } from "../../reducer/productReducer";
+import { addCartCount, subCartCount } from "../../reducer/cartSlice";
+import { increasePrice, decreasePrice } from "../../reducer/productSlice";
 
 export function BasketCounterContainer({
 	product,

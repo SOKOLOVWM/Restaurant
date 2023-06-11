@@ -1,4 +1,4 @@
-import styles from "./Delivery.module.css";
+import styles from "./Delivery.module.scss";
 import location from "./../../../../assets/images/icon_location.svg";
 import magnifier from "./../../../../assets/images/icon_magnifier.svg";
 

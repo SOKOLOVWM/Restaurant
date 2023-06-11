@@ -1,4 +1,4 @@
-import styles from "./Refund.module.css";
+import styles from "./Refund.module.scss";
 import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Title } from "../../common/Title/Title";
 import { constants } from "../../constants/constants";

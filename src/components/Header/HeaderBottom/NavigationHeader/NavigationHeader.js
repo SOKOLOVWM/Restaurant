@@ -1,4 +1,4 @@
-import styles from "./NavigationHeader.module.css";
+import styles from "./NavigationHeader.module.scss";
 import { NavLink, useLocation } from "react-router-dom";
 import { initialState } from "../../../../reducer/initialState";
 

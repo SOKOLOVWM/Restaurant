@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./Cart.module.css";
+import styles from "./Cart.module.scss";
 import { constants } from "../../constants/constants";
 import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Button } from "../../common/Button/Button";
 import { Title } from "../../common/Title/Title";
 import { BasketCounterContainer } from "../../common/BasketCounter/BasketCounterContainer";
-import { deleteProduct } from "../../reducer/productReducer";
-import { subCartCount } from "../../reducer/cartReducer";
+import { deleteProduct } from "../../reducer/productSlice";
+import { subCartCount } from "../../reducer/cartSlice";
 
 export function Cart() {
-	const state = useSelector(
-		(state) => state.productReducer.productInitialState
-	);
+	const state = useSelector((state) => state.productSlice.productInitialState);
 	const dispatch = useDispatch();
 	const [basket, setBasket] = useState([]);
 

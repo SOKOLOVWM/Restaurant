@@ -1,4 +1,4 @@
-import styles from "./Arrow.module.css";
+import styles from "./Arrow.module.scss";
 
 export function Arrow() {
 	const scrollUp = () => {

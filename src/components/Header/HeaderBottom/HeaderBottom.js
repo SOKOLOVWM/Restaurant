@@ -1,4 +1,4 @@
-import styles from "./HeaderBottom.module.css";
+import styles from "./HeaderBottom.module.scss";
 import { NavigationHeader } from "./NavigationHeader/NavigationHeader";
 
 export function HeaderBottom() {

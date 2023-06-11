@@ -1,4 +1,4 @@
-import styles from "./NavigationFooter.module.css";
+import styles from "./NavigationFooter.module.scss";
 import { Link } from "react-router-dom";
 import { pages } from "../../../data/pages";
 

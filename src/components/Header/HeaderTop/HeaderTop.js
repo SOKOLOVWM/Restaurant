@@ -1,4 +1,4 @@
-import styles from "./HeaderTop.module.css";
+import styles from "./HeaderTop.module.scss";
 import { Logo } from "../../../common/Logo/Logo";
 import { Delivery } from "./Delivery/Delivery";
 import { Contacts } from "./Contacts/Contacts";

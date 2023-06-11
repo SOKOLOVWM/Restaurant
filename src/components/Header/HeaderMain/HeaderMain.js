@@ -1,4 +1,4 @@
-import styles from "./HeaderMain.module.css";
+import styles from "./HeaderMain.module.scss";
 import { Banner } from "./Banner/Banner";
 
 export function HeaderMain() {

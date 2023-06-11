@@ -1,4 +1,4 @@
-import styles from "./Authorization.module.css";
+import styles from "./Authorization.module.scss";
 
 export function Authorization({
 	title,

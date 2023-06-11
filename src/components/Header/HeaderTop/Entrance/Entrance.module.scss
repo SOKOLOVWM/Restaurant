@@ -1,0 +1,29 @@
+@import url(./../../../../styles/fonts.css);
+
+.container {
+	padding: 20px;
+	border-left: 1px solid #635c5a;
+	display: flex;
+	gap: 10px;
+	text-decoration: none;
+	cursor: pointer;
+
+	.title {
+		font-family: Gilroy-Medium;
+		font-size: 18px;
+		line-height: 21px;
+		color: #fff;
+	}
+
+	@media (max-width: 882px) {
+		& {
+			border-left: none;
+		}
+	}
+}
+
+.actionSelect {
+	font-size: 18px;
+	padding: 12px;
+	cursor: pointer;
+}

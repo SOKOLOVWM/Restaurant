@@ -1,4 +1,4 @@
-import styles from "./Contacts.module.css";
+import styles from "./Contacts.module.scss";
 import calling from "./../../../../assets/images/icon_calling.svg";
 
 export function Contacts() {

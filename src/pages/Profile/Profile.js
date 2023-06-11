@@ -1,4 +1,4 @@
-import styles from "./Profile.module.css";
+import styles from "./Profile.module.scss";
 import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Title } from "../../common/Title/Title";
 import { Back } from "../../common/Back/Back";

@@ -1,4 +1,4 @@
-import styles from "./Sale.module.css";
+import styles from "./Sale.module.scss";
 import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Title } from "../../common/Title/Title";
 import { constants } from "../../constants/constants";

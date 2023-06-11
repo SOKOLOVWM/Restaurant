@@ -1,15 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./Product.module.css";
+import styles from "./Product.module.scss";
 import { constants } from "../../constants/constants";
 import { Back } from "../../common/Back/Back";
 import { BasketCounterContainer } from "../../common/BasketCounter/BasketCounterContainer";
 import { MainContainer } from "../../common/MainContainer/MainContainer";
 
 export function Product() {
-	const state = useSelector(
-		(state) => state.productReducer.productInitialState
-	);
+	const state = useSelector((state) => state.productSlice.productInitialState);
 	const dispatch = useDispatch();
 	const { url, id } = useParams();
 

@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import styles from "./CartButton.module.css";
+import styles from "./CartButton.module.scss";
 import cart from "./../../../../assets/images/icon_cart.svg";
 import { constants } from "../../../../constants/constants";
 
 export function CartButton() {
 	const cartTotalCount = useSelector(
-		(state) => state.cartReducer.cartInitialState
+		(state) => state.cartSlice.cartInitialState
 	);
 
 	return (

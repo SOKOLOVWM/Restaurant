@@ -1,0 +1,12 @@
+@import url(./../../styles/fonts.css);
+
+.about {
+	margin-top: 100px;
+	gap: 20px;
+
+	@media (max-width: 882px) {
+		& {
+			margin-top: 134px;
+		}
+	}
+}

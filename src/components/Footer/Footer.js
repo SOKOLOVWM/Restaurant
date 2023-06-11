@@ -1,4 +1,4 @@
-import styles from "./Footer.module.css";
+import styles from "./Footer.module.scss";
 import { Arrow } from "../../common/Arrow/Arrow";
 import { Logo } from "../../common/Logo/Logo";
 import { NavigationFooter } from "./NavigationFooter/NavigationFooter";

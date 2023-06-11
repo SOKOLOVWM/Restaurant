@@ -1,4 +1,4 @@
-import styles from "./OrderComponent.module.css";
+import styles from "./OrderComponent.module.scss";
 
 export function OrderComponent({ children, title }) {
 	return (

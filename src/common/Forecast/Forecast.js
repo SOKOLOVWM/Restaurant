@@ -1,4 +1,4 @@
-import styles from "./Forecast.module.css";
+import styles from "./Forecast.module.scss";
 
 export function Forecast({ forecast }) {
 	return (

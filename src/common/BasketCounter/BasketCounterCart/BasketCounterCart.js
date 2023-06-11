@@ -1,4 +1,4 @@
-import styles from "./BasketCounterCart.module.css";
+import styles from "./BasketCounterCart.module.scss";
 import { Button } from "../../Button/Button";
 
 export function BasketCounterCart({ product, handleCountAdd, handleCountSub }) {

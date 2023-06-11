@@ -1,5 +1,5 @@
 import { constants } from "../../../../constants/constants";
-import styles from "./Banner.module.css";
+import styles from "./Banner.module.scss";
 
 export function Banner() {
 	return (

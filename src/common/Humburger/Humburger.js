@@ -1,4 +1,4 @@
-import styles from "./Humburger.module.css";
+import styles from "./Humburger.module.scss";
 
 export function Humburger({ isShowMenu, setIsShowMenu }) {
 	return (
@@ -7,7 +7,7 @@ export function Humburger({ isShowMenu, setIsShowMenu }) {
 			onClick={() => setIsShowMenu(!isShowMenu)}
 		>
 			<div className={styles.humburger}>
-				<div className={styles.humburger__line}></div>
+				<div className={styles.line}></div>
 				<span className={styles.title}>Menu</span>
 			</div>
 		</nav>

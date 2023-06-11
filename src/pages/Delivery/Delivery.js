@@ -1,4 +1,4 @@
-import styles from "./Delivery.module.css";
+import styles from "./Delivery.module.scss";
 import { MainContainer } from "../../common/MainContainer/MainContainer";
 import { Title } from "../../common/Title/Title";
 import { constants } from "../../constants/constants";

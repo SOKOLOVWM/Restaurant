@@ -1,4 +1,4 @@
-import styles from "./BasketCounterCommon.module.css";
+import styles from "./BasketCounterCommon.module.scss";
 import cart from "./../../../assets/images/icon_cart.svg";
 import bag from "./../../../assets/images/icon_bag.svg";
 import { Button } from "../../Button/Button";

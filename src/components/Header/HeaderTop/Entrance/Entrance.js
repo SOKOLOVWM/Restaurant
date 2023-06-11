@@ -1,4 +1,4 @@
-import styles from "./Entrance.module.css";
+import styles from "./Entrance.module.scss";
 import profile from "./../../../../assets/images/icon_profile.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";

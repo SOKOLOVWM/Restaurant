@@ -1,12 +1,13 @@
-import styles from "./Order.module.css";
-import clock from "./../../assets/images/icon_clock.svg";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useValidate } from "../../validation/useValidate";
-import { MainContainer } from "../../common/MainContainer/MainContainer";
-import { Title } from "../../common/Title/Title";
-import { OrderComponent } from "./OrderComponent/OrderComponent";
+import { Link } from "react-router-dom";
+import styles from "./Order.module.scss";
+import clock from "./../../assets/images/icon_clock.svg";
+import { Back } from "../../common/Back/Back";
 import { constants } from "../../constants/constants";
+import { MainContainer } from "../../common/MainContainer/MainContainer";
+import { OrderComponent } from "./OrderComponent/OrderComponent";
+import { Title } from "../../common/Title/Title";
+import { useValidate } from "../../validation/useValidate";
 
 const initialState = {
 	name: "",
@@ -31,13 +32,6 @@ export function Order() {
 	const [isShow, setIsShow] = useState(false);
 	const [isDisabled, setIsDisabled] = useState(true);
 	const { error, validate } = useValidate();
-
-	// const [width, setWidth] = useState(window.innerWidth);
-
-	// useEffect(() => {
-	// 	setWidth(window.innerWidth);
-	// 	console.log(width);
-	// }, [width]);
 
 	useEffect(() => {
 		const disable =
@@ -70,7 +64,8 @@ export function Order() {
 	}
 
 	return (
-		<MainContainer addStyles={styles.order}>
+		<MainContainer backward={false} addStyles={styles.order}>
+			<Back />
 			<Title title={constants.common.place_order} />
 
 			<form className={styles.form} onSubmit={handleOrder}>

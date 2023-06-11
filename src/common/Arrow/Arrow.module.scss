@@ -1,0 +1,32 @@
+.container {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background-color: #fff;
+	position: relative;
+	cursor: pointer;
+
+	&:hover {
+		background-image: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
+	}
+
+	&:hover .arrow {
+		border-top: 3px solid #fff;
+		border-left: 3px solid #fff;
+	}
+
+	&:active {
+		box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+	}
+
+	.arrow {
+		width: 16px;
+		height: 16px;
+		border-top: 3px solid #222021;
+		border-left: 3px solid #222021;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: rotate(45deg) translate(-42%, 18%);
+	}
+}

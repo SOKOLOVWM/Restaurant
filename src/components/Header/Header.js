@@ -1,4 +1,4 @@
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 import { HeaderTop } from "./HeaderTop/HeaderTop";
 import { HeaderMain } from "./HeaderMain/HeaderMain";
 import { HeaderBottom } from "./HeaderBottom/HeaderBottom";

@@ -1,0 +1,13 @@
+.main {
+	height: 100%;
+	padding: 50px 90px;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+
+	@media (max-width: 1280px) {
+		& {
+			padding: 50px 20px;
+		}
+	}
+}

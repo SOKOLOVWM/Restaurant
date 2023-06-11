@@ -1,4 +1,4 @@
-import styles from "./Back.module.css";
+import styles from "./Back.module.scss";
 import { useNavigate } from "react-router-dom";
 
 export function Back() {

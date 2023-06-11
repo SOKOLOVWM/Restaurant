@@ -1,0 +1,41 @@
+.header_top {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: linear-gradient(360deg, #211f20 0%, #44403f 100%);
+	z-index: 1;
+
+	.content {
+		min-height: 100px;
+		width: 100%;
+		max-width: 1440px;
+		padding: 10px 40px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		column-gap: 20px;
+		row-gap: 10px;
+
+		@media (max-width: 882px) {
+			& {
+				justify-content: center;
+			}
+		}
+
+		@media (max-width: 555px) {
+			& {
+				padding: 10px;
+			}
+		}
+
+		@media (max-width: 414px) {
+			& {
+				column-gap: 10px;
+			}
+		}
+	}
+}

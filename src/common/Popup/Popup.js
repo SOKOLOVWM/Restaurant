@@ -1,4 +1,4 @@
-import styles from "./Popup.module.css";
+import styles from "./Popup.module.scss";
 
 export function Popup({ isActive, setIsActive, handlePopup, children }) {
 	return (

@@ -1,0 +1,113 @@
+@import url(./../../styles/fonts.css);
+
+.product {
+	margin-top: 100px;
+	gap: 20px;
+}
+
+.container {
+	border-radius: 10px;
+	display: flex;
+	position: relative;
+	background: linear-gradient(90deg, #494544 0%, #504b4a 100%);
+
+	@media (max-width: 960px) {
+		& {
+			max-width: 460px;
+			flex-direction: column;
+			align-self: center;
+		}
+	}
+
+	.productImage {
+		border-radius: 10px 0 0 10px;
+		flex: 1.16;
+	}
+
+	.content {
+		padding: 50px 40px 25px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		flex: 1;
+		gap: 20px;
+
+		@media (max-width: 960px) {
+			& {
+				padding: 20px 40px;
+			}
+		}
+
+		@media (max-width: 480px) {
+			& {
+				padding: 20px 20px;
+			}
+		}
+
+		.headerBox {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+
+			& h3 {
+				font-family: Gilroy-Bold;
+				font-size: 25px;
+				line-height: 30px;
+				color: #fff;
+			}
+
+			& p {
+				font-size: 14px;
+				line-height: 16px;
+				color: #cfcfcf;
+			}
+		}
+
+		.mainBox {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+			.weight {
+				font-size: 14px;
+				line-height: 16px;
+				color: #fff;
+			}
+
+			.cartBox {
+				display: flex;
+				align-items: center;
+				column-gap: 25px;
+			}
+
+			.cartButton {
+				order: -1;
+			}
+
+			tbody {
+				& tr:first-child {
+					font-family: Gilroy-Light;
+					font-size: 12px;
+					line-height: 14px;
+					color: #fff;
+				}
+
+				& tr:last-child {
+					font-family: Gilroy-Medium;
+					font-size: 12px;
+					line-height: 14px;
+					color: #fff;
+				}
+
+				& tr td {
+					width: 100px;
+					padding: 4px;
+				}
+
+				& tr:first-child td {
+					border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+				}
+			}
+		}
+	}
+}
