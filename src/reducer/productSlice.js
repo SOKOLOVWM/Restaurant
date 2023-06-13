@@ -1,6 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "./initialState";
 
+const findProduct = (state, action) => {
+	const { id, category } = action.payload;
+	let product = null;
+
+	state.productInitialState.forEach((item) => {
+		if (item.url === category) {
+			item.products.forEach((element) => {
+				if (element.id === +id) {
+					product = element;
+				}
+			});
+		}
+	});
+
+	return product;
+};
+
 const productSlice = createSlice({
 	name: "productSlice",
 	initialState: {
@@ -8,46 +25,19 @@ const productSlice = createSlice({
 	},
 	reducers: {
 		increasePrice: (state, action) => {
-			const { id, category } = action.payload;
-
-			state.productInitialState.forEach((item) => {
-				if (item.url === category) {
-					item.products.forEach((element) => {
-						if (element.id === +id) {
-							element.cartPrice += element.price;
-							element.cartCount++;
-						}
-					});
-				}
-			});
+			const product = findProduct(state, action);
+			product.cartPrice += product.price;
+			product.cartCount++;
 		},
 		decreasePrice: (state, action) => {
-			const { id, category } = action.payload;
-
-			state.productInitialState.forEach((item) => {
-				if (item.url === category) {
-					item.products.forEach((element) => {
-						if (element.id === +id) {
-							element.cartPrice -= element.price;
-							element.cartCount--;
-						}
-					});
-				}
-			});
+			const product = findProduct(state, action);
+			product.cartPrice -= product.price;
+			product.cartCount--;
 		},
 		deleteProduct: (state, action) => {
-			const { id, category } = action.payload;
-
-			state.productInitialState.forEach((item) => {
-				if (item.url === category) {
-					item.products.forEach((element) => {
-						if (element.id === +id) {
-							element.cartPrice = 0;
-							element.cartCount = 0;
-						}
-					});
-				}
-			});
+			const product = findProduct(state, action);
+			product.cartPrice = 0;
+			product.cartCount = 0;
 		},
 	},
 });
