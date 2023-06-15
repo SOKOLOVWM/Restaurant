@@ -1,0 +1,39 @@
+@import url(./../../../styles/fonts.css);
+
+.accordionTitle {
+	padding: 15px 30px;
+	border-radius: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	list-style: none;
+	font-family: Gilroy-medium;
+	font-size: 18px;
+	line-height: 35px;
+	color: #fff;
+	background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
+	cursor: pointer;
+	z-index: 1;
+
+	&::after {
+		content: url(./../../../assets/images/icon_arrowDown.svg);
+		height: 24px;
+		width: 24px;
+	}
+}
+
+.accordionContent {
+	padding: 45px 30px 40px;
+	border-radius: 0 0 10px 10px;
+	position: relative;
+	top: -5px;
+	font-size: 16px;
+	line-height: 25px;
+	color: #fff;
+	background: linear-gradient(90deg, #494544 0%, #504b4a 100%);
+}
+
+details[open] summary::after {
+	content: url(./../../../assets/images/icon_arrowUp.svg);
+}

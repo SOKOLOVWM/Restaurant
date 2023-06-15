@@ -9,4 +9,17 @@
 			margin-top: 134px;
 		}
 	}
+
+	.container {
+		display: flex;
+		gap: 20px;
+		flex: 1;
+	}
+
+	.accordion {
+		width: 620px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
 }
