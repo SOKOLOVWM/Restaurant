@@ -1,13 +1,20 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import styles from "./CartButton.module.scss";
 import cart from "./../../../../assets/images/icon_cart.svg";
 import { constants } from "../../../../constants/constants";
+import { setCookies } from "../../../../reducer/cartSlice";
 
 export function CartButton() {
 	const cartTotalCount = useSelector(
 		(state) => state.cartSlice.cartInitialState
 	);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(setCookies(cartTotalCount));
+	}, [cartTotalCount]);
 
 	return (
 		<Link to="/cart" state="true" className={styles.cartButton}>

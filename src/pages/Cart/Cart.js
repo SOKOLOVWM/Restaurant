@@ -28,6 +28,7 @@ export function Cart() {
 		});
 
 		setBasket(basketState);
+		localStorage.setItem("basket", JSON.stringify(basketState));
 	}, [state]);
 
 	const removeProduct = (id, url, cartCount) => {
